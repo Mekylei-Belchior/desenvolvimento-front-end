@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analisador de Números</title>
+
+    <link rel="stylesheet" href="estilo.css">
+</head>
+
+<body">
+    <header>
+        <h1>Analisador de Números</h1>
+    </header>
+
+    <section id="section">
+        <div id="entrada">
+            <p class="entrada-dados">
+                Número:
+                <input type="number" placeholder="Entre 0 e 100" name="numero" id="inNumero">
+                <input type="button" value="Adicionar" onclick="adicionar()">
+            </p>
+            
+        </div>
+
+        <div id="dados" class="dados">
+            <select name="selectNumeros" id="sDados">
+                
+            </select>
+            <p><input type="button" value="Finalizar" onclick="finalizar()"></p>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy;Copyright - Mekylei</p>
+    </footer>
+
+    <script src="script.js"></script>
+    
+</body>
+
+</html>

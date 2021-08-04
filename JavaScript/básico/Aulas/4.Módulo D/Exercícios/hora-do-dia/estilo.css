@@ -1,0 +1,31 @@
+body{
+    background-color: rgba(12, 160, 165, 0.699);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+
+}
+
+header{
+    color: aliceblue;
+    text-align: center;
+}
+
+section{
+    background-color: azure;
+    width: 400px;
+    height: 400px;
+    margin: auto;
+    border-radius: 5px 5px;
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.281);
+    
+}
+
+footer{
+    color: aliceblue;
+    text-align: center;
+}
+
+div{
+    padding: 12px;
+    text-align: center;
+}

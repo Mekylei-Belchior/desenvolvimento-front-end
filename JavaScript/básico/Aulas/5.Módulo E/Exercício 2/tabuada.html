@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabuada</title>
+
+    <link rel="stylesheet" href="estilo.css">
+</head>
+
+<body>
+
+    <header>
+        <p>Tabuada</p>
+    </header>
+
+    <section>
+        <div id="dados" class="campos">
+            <div class="inicio">
+                <label for="valor">Número</label>
+                <input type="number" placeholder="Valor" name="numero" id="valor">
+
+                <input type="button" value="Gerar" id="botao" onclick="gerar()">
+            </div>
+
+        </div>
+
+        <select name="" id="resultado" size="10">
+            <option value="valor">Informe o número da tabuada</option>
+        </select>
+
+    </section>
+
+    <footer>
+        <p>&copy;Copyright - Mekylei</p>
+    </footer>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>

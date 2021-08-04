@@ -1,0 +1,46 @@
+header{
+    text-align: center;
+    text-shadow: 2px 2px rgb(5, 5, 5);
+}
+
+body{
+    background-color: rgba(165, 42, 42, 0.644);
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    color: whitesmoke;
+    text-align: center;
+}
+
+section{
+    background-color: rgb(122, 121, 121);
+    margin: auto;
+    width: 500px;
+    height: auto;
+    border-radius: 10px 10px 10px;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.781);
+}
+
+footer{
+    text-align: center;
+}
+
+select{
+    width: 240px;
+}
+
+.entrada-dados{
+    padding-top: 10px;
+    padding-left: 10px;
+    text-align: left;
+}
+
+.dados{
+    text-align: left;
+    padding-left: 10px;
+    padding-bottom: 5px;
+}
+
+#resultado{
+    text-align: left;
+    padding-left: 10px;
+    padding-bottom: 10px;
+}

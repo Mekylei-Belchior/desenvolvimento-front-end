@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<style>
+    body{
+        font: normal 25pt Arial;
+        background-color: rgb(163, 85, 236);
+    }
+</style>
+
+<body>
+
+    <script>
+        var nome = window.prompt('Qual o seu nome?')
+
+        document.write(`Olá ${nome}. Tudo bem?<br>`)
+        // .length retorna a quantidade de caracteres de uma String
+        document.write(`O seu nome tem ${nome.length} letras.<br>`)
+        //.toUpperCase() - converte a cadeia de caracteres para maiúsculo
+        document.write(`Esse é o seu nome em letras maiúsculas: ${nome.toUpperCase()}<br>`)
+        //.toLowerCase() - converte a cadeia de caracteres para minúsculo
+        document.write(`Esse é o seu nome em letras minúsculas: ${nome.toLowerCase()}<br>`)
+
+        var oSalario = Number.parseFloat(window.prompt('Qual é o seu salário?'))
+
+        // Mostando o valor do salário em formatando de moeda
+        var salario = oSalario.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'})
+        document.write(`Salário informado: ${salario}`)
+
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Controle de Velocidade</title>
+
+    <style>
+        h1{
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        div#notificacao{
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 20px;
+            margin-top: 25px;
+            background-color: gray;
+        }
+    </style>
+
+</head>
+<body>
+
+    <h1>Radar</h1>
+
+    <label for="velocidade">Velocidade</label>
+    <input type="number" name="velocidade" id="velocidade"> km/h
+    <input type="button" value="Verificar" onclick="verificar()">
+
+    <div id="notificacao"></div>
+
+    <script>
+        
+        function verificar(){
+            var limite = 50
+            var velocidade = Number(window.document.getElementById('velocidade').value)
+            var notificacao = window.document.getElementById('notificacao')
+            
+            notificacao.innerHTML = `<p>A sua velocidade é de ${velocidade} km/h</p>`
+            
+            if (velocidade > limite){
+                var excesso = velocidade - limite
+                
+                notificacao.innerHTML += `<p>Você foi MULTADO! Você excedeu <strong>${excesso}</strong> km/h.</p>`
+            }
+
+            notificacao.innerHTML += `<p><i>Dirija com segurança!</i></p>`
+        }
+
+    </script>
+
+    
+</body>
+</html>

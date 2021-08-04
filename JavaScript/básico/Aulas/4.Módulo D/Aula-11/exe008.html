@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nacionalidade</title>
+</head>
+
+<body>
+    <h1>Nacionalidade</h1>
+
+    <label for="paisOrigem">Qual o seu país?</label>
+    <input type="text" name="paisOrigem" id="tbPais">
+    <button type="submit" onclick="verificar()">Verificar</button>
+
+    <div id="retorno"></div>
+
+    <script>
+        function verificar() {
+            var nacionalidade = 'BRASIL'
+            var pais = window.document.getElementById('tbPais').value
+            var retorno = window.document.getElementById('retorno')
+
+            if (pais.toUpperCase() == nacionalidade) {
+                retorno.innerHTML = `<p>Você é Brasileiro.</p>`
+            } else {
+                retorno.innerHTML = `<p>Você é Estrangeiro.</p>`
+            }
+        }
+    </script>
+
+</body>
+
+</html>

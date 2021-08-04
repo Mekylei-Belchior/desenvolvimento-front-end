@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        body{
+            color: aliceblue;
+        }
+
+        #txt, #prg, #novo{
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            font-size: larger;
+            margin-top: 20px;
+        }
+    </style>
+
+</head>
+<body>
+
+    <div id="txt">Testando o DOM</div>
+
+    <div id="novo">Novo texto</div>
+    
+    <p id="prg">Paragráfo</p>
+
+
+    <script>
+        var bloco = window.document.querySelector('div#txt')
+        var texto = window.document.getElementById('novo')
+        var parag = window.document.getElementsByTagName('p')[0]
+
+        texto.style.backgroundColor = '#474627'
+        texto.style.color = '#ffff'
+
+        window.document.body.style.backgroundColor = '#3D212E'
+
+        parag.innerText = 'Novo texto do paragráfo'
+
+    </script>
+
+</body>
+</html>

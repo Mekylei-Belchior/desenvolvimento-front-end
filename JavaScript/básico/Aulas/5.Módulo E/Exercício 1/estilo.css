@@ -1,0 +1,64 @@
+header{
+    font-size: larger;
+    text-align: center;
+}
+
+body{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #ffff;
+}
+
+section{
+    background-color: rgba(4, 110, 110, 0.342);
+    margin: auto;
+    width: 600px;
+    height: auto;
+    border-radius: 5px 5px;
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.290);
+}
+
+footer{
+    text-align: center;
+}
+
+.inicio, .fim, .passo{
+    margin-top: 1em;
+}
+
+.campos{
+
+    /* Para centralizar o campo de dados  na página */
+    margin: 20px;
+    width: 400px;
+    height: 150px;
+    padding-top: 20px;
+
+}
+
+label {
+    /* Todas as labels com o mesmo tamanho e alinhadas */
+    display: inline-block;
+    width: 50px;
+    text-align: right;
+}
+
+input{
+    height: 20px;
+    width: 100px;
+    border-radius: 5px 5px 5px;
+}
+
+#botao{
+    margin-left: 50px;
+    height: 26px;
+    width: 100px;
+}
+
+#resultado{
+    margin-left: 5px;
+    padding-bottom: 8px;
+}
+
+#contando{
+    margin-left: 5px;
+}

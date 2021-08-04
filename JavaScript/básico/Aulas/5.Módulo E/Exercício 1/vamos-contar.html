@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vamos Contar</title>
+
+    <link rel="stylesheet" href="estilo.css">
+</head>
+
+<body>
+
+    <header>
+        <p>Vamos Contar?</p>
+    </header>
+
+    <section>
+        <div id="dados" class="campos">
+            <div class="inicio">
+                <label for="inicio">Início</label>
+                <input type="number" placeholder="[0 - 100]" name="inicio" id="inicio">
+            </div>
+            <div class="fim">
+                <label for="fim">Fim</label>
+                <input type="number" placeholder="[0 - 100]" name="fim" id="fim">
+            </div>
+            <div class="passo">
+                <label for="passo">Passo</label>
+                <input type="number" placeholder="[1 - 100]" name="passo" id="passo">
+
+                <input type="button" value="Contar" id="botao" onclick="iniciar()">
+            </div>
+        </div>
+
+        <div id="resultado">
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy;Copyright</p>
+    </footer>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
