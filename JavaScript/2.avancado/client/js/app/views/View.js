@@ -8,7 +8,7 @@ class View{
         throw new Error('O método template deve ser implementado!')
     }
 
-    atualizar(modelo) {
+    atualiza(modelo) {
         return this._elemento.innerHTML = this.template(modelo)
     }
 }

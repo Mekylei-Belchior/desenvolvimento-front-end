@@ -1,8 +1,11 @@
 class ListaNegociacoes{
 
-    constructor(){
+    constructor(gatilho){
 
         this._negociaoes = []
+        // Função recebida como argumento na inicializaçaõ da classe
+        // Será utilizada como gatilho para disparar atualizações da view de negociações
+        this._gatilho = gatilho
     }
 
     /**
@@ -11,6 +14,8 @@ class ListaNegociacoes{
      */
     adicionaNegociacao(negociacao){
         this._negociaoes.push(negociacao)
+        // Atualiza a lista de negociações após adicionar uma nova negociação
+        this._gatilho(this)
     }
 
     /**
@@ -18,5 +23,14 @@ class ListaNegociacoes{
      */
     get nogociacoes(){
         return [].concat(this._negociaoes)
+    }
+
+    /**
+     * Limpa a lista de negociações atribuíndo uma lista vazia
+     */
+    limpa(){
+        this._negociaoes = []
+        // Atualiza a lista de negociações após apagar todas as negociações
+        this._gatilho(this)
     }
 }

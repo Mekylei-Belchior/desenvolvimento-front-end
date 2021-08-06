@@ -7,12 +7,13 @@ class NegociacaoController {
         this._inputData = $('#data')
         this._inputQuantidade = $('#quantidade')
         this._inputValor = $('#valor')
-        this._listaNegociacoes = new ListaNegociacoes()
-        
-        this._negociacoesView = new NegociacoesView($('#template-view'))
-        this._negociacoesView.atualizar(this._listaNegociacoes)
 
-        this._mensagem = new Mensagem()
+        // Instância a classe passando uma função para o seu construtor
+        this._listaNegociacoes = new ListaNegociacoes(modelo => this._negociacoesView.atualiza(modelo))
+
+        this._negociacoesView = new NegociacoesView($('#template-view'))
+        this._negociacoesView.atualiza(this._listaNegociacoes)
+        
         this._mensagemView = new MensagemView($('#mensagem'))
     }
 
@@ -26,9 +27,7 @@ class NegociacaoController {
         event.preventDefault()
 
         this._listaNegociacoes.adicionaNegociacao(this._criaNegociacao())
-        this._mensagem.texto = 'A negociação foi adicionada com sucesso!'
-        this._mensagemView.atualizar(this._mensagem)
-        this._negociacoesView.atualizar(this._listaNegociacoes)
+        this._mensagemView.atualiza(new Mensagem('A negociação foi adicionada com sucesso!'))
         this._limpar()
     }
 
@@ -42,6 +41,15 @@ class NegociacaoController {
             DateHelper.textoParaData(this._inputData.value),
             this._inputQuantidade.value,
             this._inputValor.value)
+    }
+
+    /**
+     * Apaga todas as negociações
+     */
+    apaga(){
+        this._listaNegociacoes.limpa()
+        this._mensagemView.atualiza(new Mensagem('A lista de negociações foi apagada com sucesso!'))
+        this._inputData.focus()
     }
 
     /**
