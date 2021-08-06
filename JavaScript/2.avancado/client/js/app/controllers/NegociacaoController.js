@@ -8,6 +8,8 @@ class NegociacaoController {
         this._inputQuantidade = $('#quantidade')
         this._inputValor = $('#valor')
         this._listaNegociacoes = new ListaNegociacoes()
+        this._negociacoesView = new NegociacoesView($('#template-view'))
+        this._negociacoesView.atualizar(this._listaNegociacoes)
     }
 
     /**
@@ -16,11 +18,12 @@ class NegociacaoController {
      * @param {*} event evento do formulário
      */
     adiciona(event) {
+        // Não submete o formulário (recarreguar a página) e evita que os dados da tabela sejam perdidos
         event.preventDefault()
 
         this._listaNegociacoes.adicionaNegociacao(this._criaNegociacao())
+        this._negociacoesView.atualizar(this._listaNegociacoes)
         this._limpar()
-        console.log(this._listaNegociacoes.nogociacoes)
     }
 
     /**

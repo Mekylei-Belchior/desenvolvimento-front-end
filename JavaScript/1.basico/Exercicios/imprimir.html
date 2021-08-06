@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/bootstrap-theme.css">
+    <link rel="stylesheet" href="/css/bootstrap.css">
+
+</head>
+<body class="container">
+    <table class="table table-hover table-bordered">
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Endereço</th>
+                <th>Salário</th>
+            </tr>
+        </thead>
+
+        <tbody>
+
+        <tbody>
+    </table>
+
+    <script>
+        let tbody = document.querySelector('tbody')
+        let funcionarios = [
+            {
+                "nome": "Douglas",
+                "endereco" : "Rua da esquina, 123",
+                "salario" : "4500"
+            },
+            {
+                "nome": "Felipe",
+                "endereco" : "Rua da virada, 456",
+                "salario" : "5000"
+            },
+            {
+                "nome": "Silvio",
+                "endereco" : "Rua da aresta, 789",
+                "salario" : "6000"
+            }
+        ];
+
+        let funcionariosHTML = funcionarios.map(funcionario =>
+                `
+                    <tr>
+                        <td>${funcionario.nome}</td>
+                        <td>${funcionario.endereco}</td>
+                        <td>${funcionario.salario}</td>
+                    </tr>
+                `
+                ).join('')
+        
+            tbody.innerHTML = funcionariosHTML
+            
+    </script>
+</body>
+</html>

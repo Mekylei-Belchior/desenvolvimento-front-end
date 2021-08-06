@@ -10,8 +10,12 @@ class DateHelper {
      * @param {*} data uma data no formato Date(aaaa-mm-dd)
      * @returns uma string com a data no formato: dd/mm/aaaa
      */
-     static dataParaTexto(data) {
-        return `${data.getDate()}/${data.getMonth() + 1}/${data.getFullYear()}`
+    static dataParaTexto(data) {
+        let dia = data.getDate() < 10 ? '0' + data.getDate() : data.getDate()
+        let mes = (data.getMonth() + 1) < 10 ? '0' + (data.getMonth() + 1) : data.getMonth() + 1
+        let ano = data.getFullYear()
+
+        return `${dia}/${mes}/${ano}`
     }
 
     /**
