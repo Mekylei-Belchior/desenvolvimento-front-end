@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Escopo</title>
+
+</head>
+    <body>
+
+        <h1>TITULO</h1>
+        <p>PARAGRAFO</p>
+        <div>DADOS</div>
+
+        <h4>RESUMO</h4>
+
+        <script>
+            // O escopo do (this) é window
+            console.log(this)
+
+            let exibeConteudo = function() {
+                console.log(this);
+                alert(this.textContent)
+            }
+            
+            let exibeResumo = function() {
+                let resumo = `RESUMO:
+                Quando clicamos em cada um dos elementos, exibimos no console o valor de this, inclusive exibimos um alerta, como este, com conteúdo de cada elemento, com excessão do h4 que tem a finalizade de mostra este resumo.
+                Repare que o this é dinâmico, ou seja, seu valor é definido no momento em que a função é chamada, jamais no momento em que é declarada.
+                Quando clicamos no h1, o this será este elemento, quando clicamos em p, o this será o elemento. Ainda bem que isso acontece, pois se o this não fosse dinâmico, não conseguiríamos escrever uma função genérica como a nossa.
+                `
+                console.log(this);
+                alert(resumo)
+            }
+
+            $ = document.querySelector.bind(document)
+
+            $('h1').addEventListener('click', exibeConteudo)
+            $('p').addEventListener('click', exibeConteudo)
+            $('div').addEventListener('click', exibeConteudo)
+            $('h4').addEventListener('click', exibeResumo)
+
+        </script>
+    </body>
+</html>
