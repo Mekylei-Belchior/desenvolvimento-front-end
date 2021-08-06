@@ -1,10 +1,12 @@
-class NegociacoesView {
+class NegociacoesView extends View {
 
-    constructor(elemento) {
-        this._elemento = elemento
-    }
-
-    _template(modelo) {
+    /**
+     * Adiciona linha na tabela
+     * 
+     * @param {*} modelo instância de ListaNegociacoes
+     * @returns o elemento HTML com os dados a serem inseridos na tabela
+     */
+    template(modelo) {
         return `
         <table class="table table-hover table-bordered">
             <thead>
@@ -36,9 +38,4 @@ class NegociacoesView {
         </table>
         `
     }
-
-    atualizar(modelo) {
-        return this._elemento.innerHTML = this._template(modelo)
-    }
-
 }
