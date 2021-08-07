@@ -8,13 +8,27 @@ class NegociacaoController {
         this._inputQuantidade = $('#quantidade')
         this._inputValor = $('#valor')
 
-        // Instância a classe passando uma função para o seu construtor
-        this._listaNegociacoes = new ListaNegociacoes(modelo => this._negociacoesView.atualiza(modelo))
+        // Cria uma lista de negociações através de um proxy
+        this._listaNegociacoes = ProxyFactory
+            .cria(
+                new ListaNegociacoes(),
+                ['adicionaNegociacao', 'limpa'],
+                modelo => this._negociacoesView.atualiza(modelo)
+            )
+
+        // Cria uma mensagem através de um proxy
+        this._mensagem = ProxyFactory
+            .cria(
+                new Mensagem(),
+                ['texto'],
+                texto => this._mensagemView.atualiza(texto)
+            )
 
         this._negociacoesView = new NegociacoesView($('#template-view'))
         this._negociacoesView.atualiza(this._listaNegociacoes)
-        
+
         this._mensagemView = new MensagemView($('#mensagem'))
+        this._mensagemView.atualiza(this._mensagem)
     }
 
     /**
@@ -27,7 +41,7 @@ class NegociacaoController {
         event.preventDefault()
 
         this._listaNegociacoes.adicionaNegociacao(this._criaNegociacao())
-        this._mensagemView.atualiza(new Mensagem('A negociação foi adicionada com sucesso!'))
+        this._mensagem.texto = 'A negociação foi adicionada com sucesso!'
         this._limpar()
     }
 
@@ -46,9 +60,9 @@ class NegociacaoController {
     /**
      * Apaga todas as negociações
      */
-    apaga(){
+    apaga() {
         this._listaNegociacoes.limpa()
-        this._mensagemView.atualiza(new Mensagem('A lista de negociações foi apagada com sucesso!'))
+        this._mensagem.texto = 'A lista de negociações foi apagada com sucesso!'
         this._inputData.focus()
     }
 
