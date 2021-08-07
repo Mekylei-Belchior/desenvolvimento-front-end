@@ -8,27 +8,21 @@ class NegociacaoController {
         this._inputQuantidade = $('#quantidade')
         this._inputValor = $('#valor')
 
-        // Cria uma lista de negociações através de um proxy
-        this._listaNegociacoes = ProxyFactory
-            .cria(
-                new ListaNegociacoes(),
-                ['adicionaNegociacao', 'limpa'],
-                modelo => this._negociacoesView.atualiza(modelo)
-            )
-
-        // Cria uma mensagem através de um proxy
-        this._mensagem = ProxyFactory
-            .cria(
-                new Mensagem(),
-                ['texto'],
-                texto => this._mensagemView.atualiza(texto)
-            )
-
+        // Cria a lista de negociações vinculada a sua view
         this._negociacoesView = new NegociacoesView($('#template-view'))
-        this._negociacoesView.atualiza(this._listaNegociacoes)
+        this._listaNegociacoes = new Bind(
+            new ListaNegociacoes(),
+            this._negociacoesView,
+            ['adicionaNegociacao', 'limpa']
+        )
 
+        // Cria mensagens vinculada com sua view
         this._mensagemView = new MensagemView($('#mensagem'))
-        this._mensagemView.atualiza(this._mensagem)
+        this._mensagem = new Bind(
+            new Mensagem(),
+            this._mensagemView,
+            ['texto']
+        )
     }
 
     /**
