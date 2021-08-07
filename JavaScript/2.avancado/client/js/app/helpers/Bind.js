@@ -7,7 +7,7 @@ class Bind {
      * @param {*} props métodos ou propriedades do (modelo)
      * @returns o proxy criado
      */
-    constructor(modelo, view, props) {
+    constructor(modelo, view, ...props) {
 
         let proxy = ProxyFactory
             .cria(

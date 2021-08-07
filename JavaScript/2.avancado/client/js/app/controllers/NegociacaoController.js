@@ -9,19 +9,17 @@ class NegociacaoController {
         this._inputValor = $('#valor')
 
         // Cria a lista de negociações vinculada a sua view
-        this._negociacoesView = new NegociacoesView($('#template-view'))
         this._listaNegociacoes = new Bind(
             new ListaNegociacoes(),
-            this._negociacoesView,
-            ['adicionaNegociacao', 'limpa']
+            new NegociacoesView($('#template-view')),
+            'adicionaNegociacao', 'limpa'
         )
 
         // Cria mensagens vinculada com sua view
-        this._mensagemView = new MensagemView($('#mensagem'))
         this._mensagem = new Bind(
             new Mensagem(),
-            this._mensagemView,
-            ['texto']
+            new MensagemView($('#mensagem')),
+            'texto'
         )
     }
 
