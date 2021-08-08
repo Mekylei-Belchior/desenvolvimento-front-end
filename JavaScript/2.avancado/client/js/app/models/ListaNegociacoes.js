@@ -18,8 +18,15 @@ class ListaNegociacoes {
     /**
      * Devolve uma nova referência da lista de negociações
      */
-    get nogociacoes() {
+    get negociacoes() {
         return [].concat(this._negociaoes)
+    }
+
+    /**
+     * Devolve o volume total
+     */
+    get volumeTotal() {
+        return this._negociaoes.reduce((total, n) => total + n.volume, 0.0)
     }
 
     /**
