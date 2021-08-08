@@ -38,6 +38,29 @@ class NegociacaoController {
     }
 
     /**
+     * Importa negociações do servidor
+     */
+    importaNegociacoes() {
+        NegociacaoService.obterNegociacoesDaSemana(
+            (erro, negociacoes) => {
+                if (erro) {
+                    this._mensagem.texto = erro
+                    this._inputData.focus()
+                    return
+                } else {
+                    negociacoes.forEach(
+                        negociacao => this._listaNegociacoes.adicionaNegociacao(negociacao))
+
+                    this._mensagem.texto = 'As negociações foram importadas com sucesso!'
+                    this._inputData.focus()
+
+                }
+            }
+        )
+
+    }
+
+    /**
      * Cria uma nova negociação
      * 
      * @returns a negociação criada
