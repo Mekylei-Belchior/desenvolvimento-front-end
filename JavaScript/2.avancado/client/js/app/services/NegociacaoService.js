@@ -3,7 +3,7 @@ class NegociacaoService {
     /**
      * Obtém as negogiações da semana
      * 
-     * @param {*} callback função que será executada após o processamento da requisição
+     * @param {*} callback função que será executada quando o (readyState) mudar
      */
     static obterNegociacoesDaSemana(callback) {
 
@@ -13,6 +13,7 @@ class NegociacaoService {
         // Inicializa uma requisição para o endereço local via GET
         xhr.open('GET', 'negociacoes/semana')
 
+        // Guarda a função que será executada assim que for alterado o estado da requisição
         xhr.onreadystatechange = () => {
             // readyState 4: requisição está concluída e a resposta está pronta
             if (xhr.readyState == 4) {
