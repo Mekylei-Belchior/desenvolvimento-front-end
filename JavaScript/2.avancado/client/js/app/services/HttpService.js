@@ -1,7 +1,7 @@
 class HttpService {
 
     /**
-     * Obtém uma promisse com as negociações fornecidas por uma API
+     * Obtém as negociações fornecidas por uma API
      * 
      * @param {*} url endereço da API que fornece as negociações
      * @returns uma (Promise)
@@ -33,6 +33,30 @@ class HttpService {
 
             // Executa a requisição
             xhr.send()
+        })
+    }
+
+    post(url, dado) {
+
+        return new Promise((resolve, reject) => {
+
+            let xhr = new XMLHttpRequest()
+
+            xhr.open('POST', url, true)
+            // Adiciona ao cabeçalho da requisição o tipo de conteúdo que será enviado
+            xhr.setRequestHeader("Content-type", "application/json")
+
+            xhr.onreadystatechange = () => {
+                if (xhr.readyState == 4) {
+                    if (xhr.status == 200) {
+                        resolve(JSON.parse(xhr.responseText))
+                    } else {
+                        reject(JSON.parse(xhr.responseText))
+                    }
+                }
+            }
+            // Envia a requisição após converter os dados em uma string no formato JSON
+            xhr.send(JSON.stringify(dado))
         })
     }
 }
