@@ -1,8 +1,8 @@
 export class Negociacao {
 
-    #data
-    #quantidade
-    #valor
+    private _data
+    private _quantidade
+    private _valor
 
     /**
      * Construtor que inicializa as propriedades quando a classe é instânciada 
@@ -11,36 +11,36 @@ export class Negociacao {
      * @param {*} valor custo por unidade
      */
     constructor(data, quantidade, valor) {
-        this.#data = data
-        this.#quantidade = quantidade
-        this.#valor = valor
+        this._data = data
+        this._quantidade = quantidade
+        this._valor = valor
     }
 
     /**
      * Devolve a data da negociação
      */
     get data() {
-        return this.#data
+        return this._data
     }
 
     /**
      * Devolve a quantidade negociada
      */
     get quantidade() {
-        return this.#quantidade
+        return this._quantidade
     }
 
     /**
      * Devolve o custo por unidade
      */
     get valor() {
-        return this.#valor
+        return this._valor
     }
 
     /**
      * Devolve o volume negociado
      */
     get volume() {
-        return this.#quantidade * this.#valor
+        return this._quantidade * this._valor
     }
 }
