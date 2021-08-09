@@ -7,12 +7,13 @@ class NegociacaoController {
         this._inputData = $('#data')
         this._inputQuantidade = $('#quantidade')
         this._inputValor = $('#valor')
+        this._ordenadoPor = ''
 
         // Cria a lista de negociações vinculada a sua view
         this._listaNegociacoes = new Bind(
             new ListaNegociacoes(),
             new NegociacoesView($('#template-view')),
-            'adicionaNegociacao', 'limpa'
+            'adicionaNegociacao', 'limpa', 'ordemCrescente', 'ordemDecrescente'
         )
 
         // Cria mensagens vinculada com sua view
@@ -72,6 +73,21 @@ class NegociacaoController {
             DateHelper.textoParaData(this._inputData.value),
             this._inputQuantidade.value,
             this._inputValor.value)
+    }
+
+    /**
+     * Ordena as negociações conforme coluna selecionada
+     * 
+     * @param {*} coluna que servirá como referência para a ordenação
+     */
+    ordena(coluna) {
+        if (this._ordenadoPor == coluna) {
+            this._listaNegociacoes.ordemDecrescente()
+        } else {
+            this._listaNegociacoes.ordemCrescente((a, b) => a[coluna] - b[coluna])
+        }
+
+        this._ordenadoPor = coluna
     }
 
     /**

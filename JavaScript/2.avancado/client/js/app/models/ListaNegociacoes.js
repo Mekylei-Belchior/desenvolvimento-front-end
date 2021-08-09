@@ -30,6 +30,20 @@ class ListaNegociacoes {
     }
 
     /**
+     * Ordena a lista de negociações de forma crescente com base em um critério
+     */
+    ordemCrescente(criterio) {
+        this._negociaoes.sort(criterio)
+    }
+
+    /**
+     * Ordena a lista de negociações de forma decrescente com base em um critério
+     */
+    ordemDecrescente(criterio) {
+        this._negociaoes.reverse()
+    }
+
+    /**
      * Limpa a lista de negociações atribuíndo uma lista vazia
      */
     limpa() {
