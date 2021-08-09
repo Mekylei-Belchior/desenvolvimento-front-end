@@ -12,8 +12,8 @@ var express = require('express')
   Para utilizar, comente a linha 15 e retire o comentário da linha 14
 
 */
-//app.set('clientPath', path.join(__dirname, '../../..', '0.exercicios'));
-app.set('clientPath', path.join(__dirname, '../..', 'client'));
+app.set('clientPath', path.join(__dirname, '../../..', '0.exercicios'));
+//app.set('clientPath', path.join(__dirname, '../..', 'client'));
 console.log(app.get('clientPath'));
 app.use(express.static(app.get('clientPath')));
 app.use(bodyParser.json());
