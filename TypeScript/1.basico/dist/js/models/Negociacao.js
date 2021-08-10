@@ -1,6 +1,6 @@
 export class Negociacao {
     /**
-     * Construtor que inicializa as propriedades quando a classe é instânciada
+     * Construtor que inicializa as propriedades de uma negociação quando a classe é instânciada
      * @param {*} data da negociação
      * @param {*} quantidade negociada
      * @param {*} valor custo por unidade
