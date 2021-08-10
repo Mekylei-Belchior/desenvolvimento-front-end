@@ -30,7 +30,7 @@ export class NegociacaoController {
     adiciona(): void {
         this.negociacoes.adiciona(this.criaNegociacao());
         this.negociacoesView.atualiza(this.negociacoes);
-        this.mensagem.atualiza('Negociação criada com sucesso!');
+        this.mensagem.atualiza('A negociação foi criada com sucesso!');
         this.limpa();
     }
 

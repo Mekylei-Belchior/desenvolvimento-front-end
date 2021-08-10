@@ -1,17 +1,11 @@
 import { Negociacoes } from "../models/Negociacoes.js";
 import { View } from "./View.js";
 
-export class NegociacoesView extends View {
+export class NegociacoesView extends View<Negociacoes> {
 
     /**
-     * Redenriza a tabela do template
-     */
-    atualiza(modelo: Negociacoes): void {
-        this.elemento.innerHTML = this.template(modelo);
-    }
-
-    /**
-     * Cria uma tabela
+     * Cria uma tabela com as negociações
+     * 
      * @returns uma tabela em HTML
      */
     template(modelo: Negociacoes): string {

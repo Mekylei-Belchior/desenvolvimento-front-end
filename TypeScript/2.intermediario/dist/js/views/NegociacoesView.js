@@ -1,13 +1,8 @@
 import { View } from "./View.js";
 export class NegociacoesView extends View {
     /**
-     * Redenriza a tabela do template
-     */
-    atualiza(modelo) {
-        this.elemento.innerHTML = this.template(modelo);
-    }
-    /**
-     * Cria uma tabela
+     * Cria uma tabela com as negociações
+     *
      * @returns uma tabela em HTML
      */
     template(modelo) {
