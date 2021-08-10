@@ -10,14 +10,14 @@ export class NegociacoesView {
     /**
      * Redenriza a tabela do template
      */
-    atualiza() {
-        this.elemento.innerHTML = this.template();
+    atualiza(modelo) {
+        this.elemento.innerHTML = this.template(modelo);
     }
     /**
      * Cria uma tabela
      * @returns uma tabela em HTML
      */
-    template() {
+    template(modelo) {
         return `
 
             <table class="table table-hover table-bordered">
@@ -30,7 +30,17 @@ export class NegociacoesView {
                 </thead>
                 
                 <tbody>
-                
+
+                    ${modelo.lista().map(negocicao => {
+            return `
+                        <tr>
+                            <td>${new Intl.DateTimeFormat().format(negocicao.data)}</td>
+                            <td>${negocicao.quantidade}</td>
+                            <td>${negocicao.valor}</td>
+                        </tr>
+                        `;
+        }).join('')}
+
                 </tbody>
             </table>
         
