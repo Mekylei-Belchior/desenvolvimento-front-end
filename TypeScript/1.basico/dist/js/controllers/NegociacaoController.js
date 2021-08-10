@@ -1,4 +1,5 @@
 import { Negociacao } from "../models/Negociacao.js";
+import { Negociacoes } from "../models/Negociacoes.js";
 export class NegociacaoController {
     /**
      * Construtor
@@ -6,15 +7,16 @@ export class NegociacaoController {
      * Inicializa as propriedades com os campos do formulário
      */
     constructor() {
+        this.negociacoes = new Negociacoes();
         this.inputData = document.querySelector('#data');
         this.inputQuantidade = document.querySelector('#quantidade');
         this.inputValor = document.querySelector('#valor');
     }
     /**
-     *
+     * Adiciona uma nova negociações a lista de negociações
      */
     adiciona() {
-        console.log(this.criaNegociacao());
+        this.negociacoes.adiciona(this.criaNegociacao());
         this.limpa();
     }
     /**
