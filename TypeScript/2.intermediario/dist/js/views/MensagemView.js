@@ -1,12 +1,5 @@
-export class MensagemView {
-    /**
-     * Construtor
-     *
-     * @param cssID seletor CSS: id
-     */
-    constructor(cssID) {
-        this.elemento = document.querySelector(cssID);
-    }
+import { View } from "./View.js";
+export class MensagemView extends View {
     /**
      * Renderiza a mensagem na página
      *

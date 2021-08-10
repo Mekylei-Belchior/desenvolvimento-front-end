@@ -1,17 +1,7 @@
 import { Negociacoes } from "../models/Negociacoes.js";
+import { View } from "./View.js";
 
-export class NegociacoesView {
-
-    private elemento: HTMLElement;
-
-    /**
-     * Construtor
-     * 
-     * @param cssID seletor CSS: id 
-     */
-    constructor(cssID: string) {
-        this.elemento = document.querySelector(cssID);
-    }
+export class NegociacoesView extends View {
 
     /**
      * Redenriza a tabela do template

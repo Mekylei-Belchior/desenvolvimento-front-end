@@ -1,12 +1,5 @@
-export class NegociacoesView {
-    /**
-     * Construtor
-     *
-     * @param cssID seletor CSS: id
-     */
-    constructor(cssID) {
-        this.elemento = document.querySelector(cssID);
-    }
+import { View } from "./View.js";
+export class NegociacoesView extends View {
     /**
      * Redenriza a tabela do template
      */
