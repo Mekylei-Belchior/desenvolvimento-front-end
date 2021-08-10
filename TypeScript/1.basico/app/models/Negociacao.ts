@@ -1,26 +1,26 @@
 export class Negociacao {
 
-    private _data: Date;
-    private _quantidade: number;
-    private _valor: number;
-
     /**
      * Construtor que inicializa as propriedades de uma negociação quando a classe é instânciada 
+     * 
      * @param {*} data da negociação
      * @param {*} quantidade negociada
      * @param {*} valor custo por unidade
      */
-    constructor(data: Date, quantidade: number, valor: number) {
-        this._data = data;
-        this._quantidade = quantidade;
-        this._valor = valor;
-    }
+    constructor(
+        private _data: Date,
+        private _quantidade: number,
+        private _valor: number) { }
 
     /**
      * Devolve a data da negociação
+     * 
+     * Devolve uma nova referência da data da negociação evitando
+     * que a referência inicial não seja alterada
      */
     get data(): Date {
-        return this._data;
+        const data = new Date(this._data.getTime());
+        return data;
     }
 
     /**

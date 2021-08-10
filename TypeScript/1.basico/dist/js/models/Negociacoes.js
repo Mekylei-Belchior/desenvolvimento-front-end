@@ -12,7 +12,8 @@ export class Negociacoes {
     }
     /**
      * Recupera a lisat de negociações
-     * @returns a lista com as negociações existentes
+     *
+     * @returns a lista com as negociações existentes somente como leitura
      */
     lista() {
         return this.negociacoes;
