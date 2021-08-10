@@ -8,7 +8,7 @@ export class MensagemView extends View<string> {
      * @param mensagem texto da mensagem
      * @returns um paragráfco em HTML
      */
-    template(mensagem: string): string {
+    protected template(mensagem: string): string {
         return `<p class="alert alert-info">${mensagem}<p>`;
     }
 }

@@ -8,7 +8,7 @@ export class NegociacoesView extends View<Negociacoes> {
      * 
      * @returns uma tabela em HTML
      */
-    template(modelo: Negociacoes): string {
+    protected template(modelo: Negociacoes): string {
         return `
 
             <table class="table table-hover table-bordered">

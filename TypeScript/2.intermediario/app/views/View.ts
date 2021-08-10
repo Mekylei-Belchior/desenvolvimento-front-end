@@ -23,5 +23,5 @@ export abstract class View<Tipo> {
      * 
      * @param modelo que servirá de base para criar o elemento HTML
      */
-    abstract template(modelo: Tipo): string;
+    protected abstract template(modelo: Tipo): string;
 }
