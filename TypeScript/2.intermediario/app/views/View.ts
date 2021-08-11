@@ -14,7 +14,7 @@ export abstract class View<Tipo> {
     /**
      * Renderiza o elemento HTML
      */
-    atualiza(modelo: Tipo): void {
+    public atualiza(modelo: Tipo): void {
         this.elemento.innerHTML = this.template(modelo);
     }
 

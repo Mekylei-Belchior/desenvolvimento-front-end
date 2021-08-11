@@ -9,7 +9,7 @@ export class Negociacoes {
      * 
      * @param negociacao que será adicionada a lista
      */
-    adiciona(negociacao: Negociacao): void {
+    public adiciona(negociacao: Negociacao): void {
         this.negociacoes.push(negociacao);
     }
 
@@ -18,7 +18,7 @@ export class Negociacoes {
      * 
      * @returns a lista com as negociações existentes somente como leitura
      */
-    lista(): ReadonlyArray<Negociacao> {
+    public lista(): ReadonlyArray<Negociacao> {
         return this.negociacoes;
     }
 }

@@ -27,7 +27,7 @@ export class NegociacaoController {
     /**
      * Adiciona uma nova negociações a lista de negociações
      */
-    adiciona(): void {
+    public adiciona(): void {
         this.negociacoes.adiciona(this.criaNegociacao());
         this.negociacoesView.atualiza(this.negociacoes);
         this.mensagem.atualiza('A negociação foi criada com sucesso!');
@@ -39,7 +39,7 @@ export class NegociacaoController {
      * 
      * @returns uma (Negociação)
      */
-    criaNegociacao(): Negociacao {
+    private criaNegociacao(): Negociacao {
 
         const data = new Date(this.inputData.value.replace(/-/g, ','));
         const quantidade = parseInt(this.inputQuantidade.value);
@@ -51,7 +51,7 @@ export class NegociacaoController {
     /**
      * Limpa os dados do formulário
      */
-    limpa(): void {
+    private limpa(): void {
         this.inputData.value = '';
         this.inputQuantidade.value = '1';
         this.inputValor.value = '0.0';

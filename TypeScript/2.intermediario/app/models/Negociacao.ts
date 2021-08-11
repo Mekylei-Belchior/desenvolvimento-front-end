@@ -18,7 +18,7 @@ export class Negociacao {
      * Devolve uma nova referência da data da negociação evitando
      * que a referência inicial não seja alterada
      */
-    get data(): Date {
+    public get data(): Date {
         const data = new Date(this._data.getTime());
         return data;
     }
@@ -26,21 +26,21 @@ export class Negociacao {
     /**
      * Devolve a quantidade negociada
      */
-    get quantidade(): number {
+    public get quantidade(): number {
         return this._quantidade;
     }
 
     /**
      * Devolve o custo por unidade
      */
-    get valor(): number {
+    public get valor(): number {
         return this._valor;
     }
 
     /**
      * Devolve o volume negociado
      */
-    get volume(): number {
+    public get volume(): number {
         return this._quantidade * this._valor;
     }
 }
