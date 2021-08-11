@@ -4,11 +4,6 @@ import { Negociacoes } from "../models/Negociacoes.js";
 import { MensagemView } from "../views/MensagemView.js";
 import { NegociacoesView } from "../views/NegociacoesView.js";
 export class NegociacaoController {
-    /**
-     * Construtor
-     *
-     * Inicializa as propriedades com os campos do formulário
-     */
     constructor() {
         this.negociacoes = new Negociacoes();
         this.negociacoesView = new NegociacoesView('#tabela');
@@ -18,10 +13,6 @@ export class NegociacaoController {
         this.inputValor = document.querySelector('#valor');
         this.negociacoesView.atualiza(this.negociacoes);
     }
-    /**
-     * Adiciona uma nova negociações a lista de negociações se a mesma foi feita
-     * entre segunda-feria e sexta-feira
-     */
     adiciona() {
         const negociacao = Negociacao.cria(this.inputData.value, this.inputQuantidade.value, this.inputValor.value);
         if (!this.ehDiaUtil(negociacao.data)) {
@@ -34,19 +25,10 @@ export class NegociacaoController {
         this.mensagem.atualiza('A negociação foi criada com sucesso!');
         this.limpa();
     }
-    /**
-     * Verifica se a data é um dia útil
-     *
-     * @param data a ser verificada
-     * @returns true se o dia estiver entre segunda-feira e sexta-feira. Do contrário, false.
-     */
     ehDiaUtil(data) {
         return data.getDay() > DiasDaSemana.DOMINGO
             && data.getDay() < DiasDaSemana.SABADO;
     }
-    /**
-     * Limpa os dados do formulário
-     */
     limpa() {
         this.inputData.value = '';
         this.inputQuantidade.value = '1';

@@ -1,10 +1,5 @@
 import { View } from "./View.js";
 export class NegociacoesView extends View {
-    /**
-     * Cria uma tabela com as negociações
-     *
-     * @returns uma tabela em HTML
-     */
     template(modelo) {
         return `
 
@@ -34,12 +29,6 @@ export class NegociacoesView extends View {
         
         `;
     }
-    /**
-     * Formata a data de acordo com a localidade
-     *
-     * @param data da negociação
-     * @returns a data formatada
-     */
     dataFormatada(data) {
         return new Intl.DateTimeFormat().format(data);
     }

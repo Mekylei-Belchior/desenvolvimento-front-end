@@ -9,7 +9,13 @@ export abstract class View<Tipo> {
      * @param cssID seletor CSS: id 
      */
     constructor(cssID: string, escapar?: boolean) {
-        this.elemento = document.querySelector(cssID);
+        let elemento = document.querySelector(cssID);
+
+        if (elemento) {
+            this.elemento = elemento as HTMLElement;
+        } else {
+            throw new Error(`O elemento ${elemento} não foi encontrado no DOM.`);
+        }
 
         if (escapar) {
             this.escapar = escapar;
