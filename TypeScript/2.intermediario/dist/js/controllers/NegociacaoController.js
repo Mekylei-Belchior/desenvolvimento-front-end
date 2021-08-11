@@ -23,7 +23,7 @@ export class NegociacaoController {
      * entre segunda-feria e sexta-feira
      */
     adiciona() {
-        const negociacao = this.criaNegociacao();
+        const negociacao = Negociacao.cria(this.inputData.value, this.inputQuantidade.value, this.inputValor.value);
         if (!this.ehDiaUtil(negociacao.data)) {
             this.mensagem.atualiza('Aceita somente negociações realizadas de Segunda a Sexta.');
             this.limpa();
@@ -33,17 +33,6 @@ export class NegociacaoController {
         this.negociacoesView.atualiza(this.negociacoes);
         this.mensagem.atualiza('A negociação foi criada com sucesso!');
         this.limpa();
-    }
-    /**
-     * Cria uma nova negociação
-     *
-     * @returns uma (Negociação)
-     */
-    criaNegociacao() {
-        const data = new Date(this.inputData.value.replace(/-/g, ','));
-        const quantidade = parseInt(this.inputQuantidade.value);
-        const valor = parseFloat(this.inputValor.value);
-        return new Negociacao(data, quantidade, valor);
     }
     /**
      * Verifica se a data é um dia útil
