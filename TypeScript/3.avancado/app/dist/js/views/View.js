@@ -30,5 +30,5 @@ export class View {
 }
 __decorate([
     logPerformace(false),
-    descreveFuncao()
+    descreveFuncao
 ], View.prototype, "atualiza", null);

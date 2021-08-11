@@ -32,5 +32,5 @@ export class Negociacao {
     }
 }
 __decorate([
-    descreveFuncao()
+    descreveFuncao
 ], Negociacao, "cria", null);
