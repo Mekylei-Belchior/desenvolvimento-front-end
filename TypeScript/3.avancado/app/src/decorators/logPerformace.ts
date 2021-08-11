@@ -42,7 +42,8 @@ export function logPerformace(emSegundos: boolean = true) {
 
             /** Mostra no console o tempo de execução do método */
             console.log(`Método (${propertyKey}) executado. O tempo de execução foi: ${(final - inicial) / divisor} ${unidade}`);
-            retorno
+            
+            return retorno;
         };
 
         /** O novo comportamento do método */

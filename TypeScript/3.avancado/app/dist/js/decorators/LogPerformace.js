@@ -12,7 +12,7 @@ export function logPerformace(emSegundos = true) {
             const retorno = metodoOriginal.apply(this, args);
             const final = performance.now();
             console.log(`Método (${propertyKey}) executado. O tempo de execução foi: ${(final - inicial) / divisor} ${unidade}`);
-            retorno;
+            return retorno;
         };
         return descriptor;
     };

@@ -1,3 +1,4 @@
+import { descreveFuncao } from "../decorators/descreveFuncao.js";
 import { logPerformace } from "../decorators/logPerformace.js";
 
 export abstract class View<Tipo> {
@@ -28,6 +29,7 @@ export abstract class View<Tipo> {
      * Renderiza o elemento HTML
      */
     @logPerformace(false)
+    @descreveFuncao()
     public atualiza(modelo: Tipo): void {
         let template = this.template(modelo);
 

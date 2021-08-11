@@ -1,3 +1,5 @@
+import { descreveFuncao } from "../decorators/descreveFuncao.js";
+
 export class Negociacao {
 
     /**
@@ -49,6 +51,7 @@ export class Negociacao {
      * 
      * @returns uma (Negociação)
      */
+    @descreveFuncao()
     public static cria(dataString: string, quantidadeString: string, valorString: string): Negociacao {
         const data = new Date(dataString.replace(/-/g, ','));
         const quantidade = parseInt(quantidadeString);
