@@ -7,8 +7,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 import { descreveFuncao } from "../decorators/descreveFuncao.js";
 import { logPerformace } from "../decorators/logPerformace.js";
 export class View {
-    constructor(cssID, escapar) {
-        this.escapar = false;
+    constructor(cssID) {
         let elemento = document.querySelector(cssID);
         if (elemento) {
             this.elemento = elemento;
@@ -16,16 +15,9 @@ export class View {
         else {
             throw new Error(`O elemento do seletor ${cssID} não foi encontrado no DOM.`);
         }
-        if (escapar) {
-            this.escapar = escapar;
-        }
     }
     atualiza(modelo) {
-        let template = this.template(modelo);
-        if (this.escapar) {
-            template = template.replace(/<script>[\s\S]*?<\/script>/, '');
-        }
-        this.elemento.innerHTML = template;
+        this.elemento.innerHTML = this.template(modelo);
     }
 }
 __decorate([

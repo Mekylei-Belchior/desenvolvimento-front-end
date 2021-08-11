@@ -4,24 +4,19 @@ import { logPerformace } from "../decorators/logPerformace.js";
 export abstract class View<Tipo> {
 
     protected elemento: HTMLElement;
-    private escapar = false;
 
     /**
      * Construtor
      * 
      * @param cssID seletor CSS: id 
      */
-    constructor(cssID: string, escapar?: boolean) {
+    constructor(cssID: string) {
         let elemento = document.querySelector(cssID);
 
         if (elemento) {
             this.elemento = elemento as HTMLElement;
         } else {
             throw new Error(`O elemento do seletor ${cssID} não foi encontrado no DOM.`);
-        }
-
-        if (escapar) {
-            this.escapar = escapar;
         }
     }
 
@@ -31,14 +26,7 @@ export abstract class View<Tipo> {
     @logPerformace(false)
     @descreveFuncao
     public atualiza(modelo: Tipo): void {
-        let template = this.template(modelo);
-
-        // Se true, remove tag (script), se existir, do template
-        if (this.escapar) {
-            template = template.replace(/<script>[\s\S]*?<\/script>/, '');
-        }
-
-        this.elemento.innerHTML = template;
+        this.elemento.innerHTML = this.template(modelo);
     }
 
     /**
