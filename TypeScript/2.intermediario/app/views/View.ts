@@ -14,7 +14,7 @@ export abstract class View<Tipo> {
         if (elemento) {
             this.elemento = elemento as HTMLElement;
         } else {
-            throw new Error(`O elemento ${elemento} não foi encontrado no DOM.`);
+            throw new Error(`O elemento do seletor ${cssID} não foi encontrado no DOM.`);
         }
 
         if (escapar) {

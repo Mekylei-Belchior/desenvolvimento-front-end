@@ -6,7 +6,7 @@ export class View {
             this.elemento = elemento;
         }
         else {
-            throw new Error(`O elemento ${elemento} não foi encontrado no DOM.`);
+            throw new Error(`O elemento do seletor ${cssID} não foi encontrado no DOM.`);
         }
         if (escapar) {
             this.escapar = escapar;

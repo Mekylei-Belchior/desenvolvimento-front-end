@@ -1,7 +1,9 @@
 import { NegociacaoController } from "./controllers/NegociacaoController.js";
 
+const formularioSeletor = '.form';
+
 const negocicaoController = new NegociacaoController();
-const formulario = document.querySelector('.form');
+const formulario = document.querySelector(formularioSeletor);
 
 if (formulario) {
     formulario.addEventListener('submit', event => {
@@ -12,5 +14,5 @@ if (formulario) {
 
     })
 } else {
-    throw new Error(`O elemento ${formulario} não foi encontrado no DOM.`)
+    throw new Error(`O elemento do seletor "${formularioSeletor}" não foi encontrado no DOM.`)
 }
