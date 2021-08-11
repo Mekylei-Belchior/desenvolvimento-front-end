@@ -1,3 +1,5 @@
+import { logPerformace } from "../decorators/logPerformace.js";
+
 export abstract class View<Tipo> {
 
     protected elemento: HTMLElement;
@@ -25,6 +27,7 @@ export abstract class View<Tipo> {
     /**
      * Renderiza o elemento HTML
      */
+    @logPerformace()
     public atualiza(modelo: Tipo): void {
         let template = this.template(modelo);
 
