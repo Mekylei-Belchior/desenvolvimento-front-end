@@ -28,5 +28,5 @@ export class View {
     }
 }
 __decorate([
-    logPerformace()
+    logPerformace(false)
 ], View.prototype, "atualiza", null);

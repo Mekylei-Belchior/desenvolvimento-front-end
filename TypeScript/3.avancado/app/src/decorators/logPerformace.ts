@@ -3,7 +3,7 @@
  * 
  * @returns o decorator
  */
-export function logPerformace() {
+export function logPerformace(emSegundos: boolean = true) {
     /**
      * @param target - Em métodos estáticos, é a função construtora da classe. Para métodos não estáticos, é o Prototype da classe em que está sendo aplicado o decorator.
      * @param propertyKey - Nome do método em que o decorator é aplicado.
@@ -21,6 +21,16 @@ export function logPerformace() {
 
         /** Implementação do novo comportamento a ser executado */
         descriptor.value = function (...args: Array<any>) {
+            /** Atribui valores para medição em segundos */
+            let divisor = 1000;
+            let unidade = 'segundos';
+
+            /** Para quando o parâmetro (emSegundos) for false, calcula em milisegundos */
+            if (!emSegundos) {
+                divisor = 1;
+                unidade = 'milisegundos';
+            }
+
             /** Tempo inicial de execução do método */
             const inicial = performance.now();
 
@@ -31,7 +41,7 @@ export function logPerformace() {
             const final = performance.now();
 
             /** Mostra no console o tempo de execução do método */
-            console.log(`Método (${propertyKey}) executado. O tempo de execução foi: ${(final - inicial) / 1000} segundos`);
+            console.log(`Método (${propertyKey}) executado. O tempo de execução foi: ${(final - inicial) / divisor} ${unidade}`);
             retorno
         };
 

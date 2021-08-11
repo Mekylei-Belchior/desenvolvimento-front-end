@@ -27,7 +27,7 @@ export abstract class View<Tipo> {
     /**
      * Renderiza o elemento HTML
      */
-    @logPerformace()
+    @logPerformace(false)
     public atualiza(modelo: Tipo): void {
         let template = this.template(modelo);
 
