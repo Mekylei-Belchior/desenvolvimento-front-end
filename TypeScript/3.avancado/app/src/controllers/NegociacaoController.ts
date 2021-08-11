@@ -13,7 +13,7 @@ export class NegociacaoController {
     private inputQuantidade: HTMLInputElement;
     @domInjector('#valor')
     private inputValor: HTMLInputElement;
-    
+
     private negociacoes = new Negociacoes();
     private negociacoesView = new NegociacoesView('#tabela');
     private mensagem = new MensagemView('#mensagem');
@@ -50,8 +50,23 @@ export class NegociacaoController {
         this.limpa();
     }
 
+    /**
+     * Obtém os dados de uma API
+     */
     public importa(): void {
-        window.alert('Olá');
+        fetch('http://localhost:8080/dados')
+            .then(dados => dados.json())
+            .then((listaNegociacoes: any[]) => {
+                return listaNegociacoes.map(negociacao => {
+                    return new Negociacao(new Date(), negociacao.vezes, negociacao.montante);
+                });
+            })
+            .then(negociacoes => {
+                negociacoes.forEach(negociacao => this.negociacoes.adiciona(negociacao));
+                this.negociacoesView.atualiza(this.negociacoes);
+            });
+
+        this.mensagem.atualiza('Os dados foram importados com sucesso!');
     }
 
     /**
