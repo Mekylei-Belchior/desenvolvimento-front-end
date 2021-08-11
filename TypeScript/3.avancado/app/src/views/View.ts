@@ -23,8 +23,6 @@ export abstract class View<Tipo> {
     /**
      * Renderiza o elemento HTML
      */
-    @logPerformace(false)
-    @descreveFuncao
     public atualiza(modelo: Tipo): void {
         this.elemento.innerHTML = this.template(modelo);
     }

@@ -1,3 +1,4 @@
+import { domInjector } from "../decorators/domInjector.js";
 import { DiasDaSemana } from "../enums/DiasDaSemana.js";
 import { Negociacao } from "../models/Negociacao.js";
 import { Negociacoes } from "../models/Negociacoes.js";
@@ -6,9 +7,13 @@ import { NegociacoesView } from "../views/NegociacoesView.js";
 
 export class NegociacaoController {
 
+    @domInjector('#data')
     private inputData: HTMLInputElement;
+    @domInjector('#quantidade')
     private inputQuantidade: HTMLInputElement;
+    @domInjector('#valor')
     private inputValor: HTMLInputElement;
+    
     private negociacoes = new Negociacoes();
     private negociacoesView = new NegociacoesView('#tabela');
     private mensagem = new MensagemView('#mensagem');
@@ -19,9 +24,6 @@ export class NegociacaoController {
      * Inicializa as propriedades com os campos do formulário
      */
     constructor() {
-        this.inputData = document.querySelector('#data') as HTMLInputElement;
-        this.inputQuantidade = document.querySelector('#quantidade') as HTMLInputElement;
-        this.inputValor = <HTMLInputElement>document.querySelector('#valor');
         this.negociacoesView.atualiza(this.negociacoes);
     }
 
@@ -46,6 +48,10 @@ export class NegociacaoController {
         this.negociacoesView.atualiza(this.negociacoes);
         this.mensagem.atualiza('A negociação foi criada com sucesso!');
         this.limpa();
+    }
+
+    public importa(): void {
+        window.alert('Olá');
     }
 
     /**
