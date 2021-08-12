@@ -24,6 +24,11 @@ export class Negociacao {
             Valor: ${this._valor}
             `;
     }
+    ehIgual(negociacao) {
+        return this._data === negociacao._data &&
+            this._quantidade === negociacao._quantidade &&
+            this._valor === negociacao._valor;
+    }
     static cria(dataString, quantidadeString, valorString) {
         const data = new Date(dataString.replace(/-/g, ','));
         const quantidade = parseInt(quantidadeString);

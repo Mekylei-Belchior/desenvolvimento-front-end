@@ -1,6 +1,6 @@
-import { Imprimivel } from "../interfaces/Imprimivel.js";
+import { Modelo } from "../interfaces/Modelo.js";
 
-export class Negociacao implements Imprimivel {
+export class Negociacao implements Modelo<Negociacao> {
 
     /**
      * Construtor que inicializa as propriedades de uma negociação quando a classe é instânciada 
@@ -12,7 +12,7 @@ export class Negociacao implements Imprimivel {
     constructor(
         private _data: Date,
         private _quantidade: number,
-        private _valor: number) {}
+        private _valor: number) { }
 
     /**
      * Devolve uma nova referência da data da negociação evitando que a referência inicial não seja alterada
@@ -52,6 +52,19 @@ export class Negociacao implements Imprimivel {
             Qauntidade: ${this._quantidade},
             Valor: ${this._valor}
             `;
+    }
+
+    /**
+     * Verifica se uma negociacao é igual a outra negocição
+     * 
+     * @param negociacao que será comparada
+     * 
+     * @returns (true) se forem iguais e (false) se forem diferentes.
+     */
+    public ehIgual(negociacao: Negociacao): boolean {
+        return this._data === negociacao._data &&
+            this._quantidade === negociacao._quantidade &&
+            this._valor === negociacao._valor;
     }
 
     /**

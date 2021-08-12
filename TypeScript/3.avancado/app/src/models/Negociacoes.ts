@@ -1,7 +1,7 @@
-import { Imprimivel } from "../interfaces/Imprimivel.js";
+import { Modelo } from "../interfaces/Modelo.js";
 import { Negociacao } from "./Negociacao.js";
 
-export class Negociacoes implements Imprimivel {
+export class Negociacoes implements Modelo<Negociacoes> {
 
     private negociacoes: Array<Negociacao> = [];
 
@@ -28,5 +28,16 @@ export class Negociacoes implements Imprimivel {
      */
     public paraTexto(): string {
         return JSON.stringify(this.negociacoes, null, 2);
+    }
+
+    /**
+     * Compara se uma lista de negociações é igual a outra lista de negociações.
+     * 
+     * @param negociacoes array de negociações.
+     * 
+     * @returns (true) se forem iguais e (false) se forem diferentes.
+     */
+    public ehIgual(negociacoes: Negociacoes): boolean {
+        return JSON.stringify(this.negociacoes) === JSON.stringify(negociacoes);
     }
 }
