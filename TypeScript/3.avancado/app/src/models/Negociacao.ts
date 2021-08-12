@@ -15,10 +15,7 @@ export class Negociacao implements Imprimivel {
         private _valor: number) {}
 
     /**
-     * Devolve a data da negociação
-     * 
-     * Devolve uma nova referência da data da negociação evitando
-     * que a referência inicial não seja alterada
+     * Devolve uma nova referência da data da negociação evitando que a referência inicial não seja alterada
      */
     public get data(): Date {
         const data = new Date(this._data.getTime());

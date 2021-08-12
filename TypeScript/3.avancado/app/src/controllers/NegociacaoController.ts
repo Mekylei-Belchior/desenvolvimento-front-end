@@ -31,8 +31,7 @@ export class NegociacaoController {
     }
 
     /**
-     * Adiciona uma nova negociações a lista de negociações se a mesma foi feita
-     * entre segunda-feria e sexta-feira
+     * Adiciona uma nova negociações a lista de negociações se a mesma foi feita entre segunda-feria e sexta-feira
      */
     public adiciona(): void {
         const negociacao = Negociacao.cria(

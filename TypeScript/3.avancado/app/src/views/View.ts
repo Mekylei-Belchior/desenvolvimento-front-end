@@ -1,6 +1,3 @@
-import { descreveFuncao } from "../decorators/descreveFuncao.js";
-import { logPerformace } from "../decorators/logPerformace.js";
-
 export abstract class View<Tipo> {
 
     protected elemento: HTMLElement;

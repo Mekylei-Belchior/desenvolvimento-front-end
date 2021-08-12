@@ -15,7 +15,7 @@ export class Negociacoes implements Imprimivel {
     }
 
     /**
-     * Recupera a lisat de negociações
+     * Recupera a lista de negociações
      * 
      * @returns a lista com as negociações existentes somente como leitura
      */
