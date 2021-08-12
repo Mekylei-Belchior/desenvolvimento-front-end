@@ -22,16 +22,16 @@ export class NegociacaoController {
     private mensagem = new MensagemView('#mensagem');
 
     /**
-     * Construtor
+     * Construtor da classe.
      * 
-     * Inicializa as propriedades com os campos do formulário
+     * Inicializa as propriedades com os campos do formulário.
      */
     constructor() {
         this.negociacoesView.atualiza(this.negociacoes);
     }
 
     /**
-     * Adiciona uma nova negociações a lista de negociações se a mesma foi feita entre segunda-feria e sexta-feira
+     * Adiciona uma nova negociações a lista de negociações se a mesma foi feita entre segunda-feria e sexta-feira.
      */
     public adiciona(): void {
         const negociacao = Negociacao.cria(
@@ -54,10 +54,15 @@ export class NegociacaoController {
     }
 
     /**
-     * Obtém os dados de uma API
+     * Obtém os dados de uma API.
      */
     public importa(): void {
         this.negociacoesService.obterNegociacoesAPI()
+            .then(negociacoes => {
+                return negociacoes.filter(negociacoes => {
+                    return !this.negociacoes.lista().some(negociacao => negociacao.ehIgual(negociacoes));
+                })
+            })
             .then(negociacoes => {
                 negociacoes.forEach(negociacao => this.negociacoes.adiciona(negociacao));
                 this.negociacoesView.atualiza(this.negociacoes);
@@ -67,9 +72,9 @@ export class NegociacaoController {
     }
 
     /**
-     * Verifica se a data é um dia útil
+     * Verifica se a data é um dia útil.
      * 
-     * @param data a ser verificada 
+     * @param data a ser verificada.
      * @returns true se o dia estiver entre segunda-feira e sexta-feira. Do contrário, false.
      */
     private ehDiaUtil(data: Date): boolean {
@@ -78,7 +83,7 @@ export class NegociacaoController {
     }
 
     /**
-     * Limpa os dados do formulário
+     * Limpa os dados do formulário.
      */
     private limpa(): void {
         this.inputData.value = '';

@@ -25,9 +25,14 @@ export class Negociacao {
             `;
     }
     ehIgual(negociacao) {
-        return this._data === negociacao._data &&
+        return this.mesmaData(negociacao._data) &&
             this._quantidade === negociacao._quantidade &&
             this._valor === negociacao._valor;
+    }
+    mesmaData(data) {
+        return this._data.getDay() === data.getDay() &&
+            this._data.getMonth() === data.getMonth() &&
+            this._data.getFullYear() === data.getFullYear();
     }
     static cria(dataString, quantidadeString, valorString) {
         const data = new Date(dataString.replace(/-/g, ','));
