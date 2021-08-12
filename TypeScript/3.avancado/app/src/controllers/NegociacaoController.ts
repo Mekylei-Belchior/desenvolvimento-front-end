@@ -1,7 +1,9 @@
 import { domInjector } from "../decorators/domInjector.js";
 import { DiasDaSemana } from "../enums/DiasDaSemana.js";
+import { NegociacaoAPI } from "../interfaces/NegociacaoAPI.js";
 import { Negociacao } from "../models/Negociacao.js";
 import { Negociacoes } from "../models/Negociacoes.js";
+import { NegociacoesService } from "../services/NegociacoesService.js";
 import { MensagemView } from "../views/MensagemView.js";
 import { NegociacoesView } from "../views/NegociacoesView.js";
 
@@ -15,6 +17,7 @@ export class NegociacaoController {
     private inputValor: HTMLInputElement;
 
     private negociacoes = new Negociacoes();
+    private negociacoesService = new NegociacoesService();
     private negociacoesView = new NegociacoesView('#tabela');
     private mensagem = new MensagemView('#mensagem');
 
@@ -54,13 +57,7 @@ export class NegociacaoController {
      * Obtém os dados de uma API
      */
     public importa(): void {
-        fetch('http://localhost:8080/dados')
-            .then(dados => dados.json())
-            .then((listaNegociacoes: any[]) => {
-                return listaNegociacoes.map(negociacao => {
-                    return new Negociacao(new Date(), negociacao.vezes, negociacao.montante);
-                });
-            })
+        this.negociacoesService.obterNegociacoesAPI()
             .then(negociacoes => {
                 negociacoes.forEach(negociacao => this.negociacoes.adiciona(negociacao));
                 this.negociacoesView.atualiza(this.negociacoes);
