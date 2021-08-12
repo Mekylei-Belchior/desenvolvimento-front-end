@@ -30,8 +30,8 @@ export class NegociacaoController {
         this.negociacoes.adiciona(negociacao);
         this.negociacoesView.atualiza(this.negociacoes);
         this.mensagem.atualiza('A negociação foi criada com sucesso!');
-        imprimir(negociacao, this.negociacoes);
         this.limpa();
+        imprimir(negociacao, this.negociacoes);
     }
     importa() {
         this.negociacoesService.obterNegociacoesAPI()

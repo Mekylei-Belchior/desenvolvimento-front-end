@@ -1,7 +1,7 @@
 /**
- * Decorator para medir a performace de execução de um método
+ * Decorator para medir a performace de execução de um método.
  * 
- * @returns o decorator
+ * @returns o decorator.
  */
 export function logPerformace(emSegundos: boolean = true) {
     /**
@@ -16,37 +16,37 @@ export function logPerformace(emSegundos: boolean = true) {
         propertyKey: string,
         descriptor: PropertyDescriptor
     ) {
-        /** Garda o comportamento original do método */
+        /** Garda o comportamento original do método. */
         const metodoOriginal = descriptor.value;
 
-        /** Implementação do novo comportamento a ser executado */
+        /** Implementação do novo comportamento a ser executado. */
         descriptor.value = function (...args: Array<any>) {
-            /** Atribui valores para medição em segundos */
+            /** Atribui valores para medição em segundos. */
             let divisor = 1000;
             let unidade = 'segundos';
 
-            /** Para quando o parâmetro (emSegundos) for false, calcula em milisegundos */
+            /** Para quando o parâmetro (emSegundos) for false, calcula em milisegundos. */
             if (!emSegundos) {
                 divisor = 1;
                 unidade = 'milisegundos';
             }
 
-            /** Tempo inicial de execução do método */
+            /** Tempo inicial de execução do método. */
             const inicial = performance.now();
 
-            /** Guarda o retorno do método original aplicado ao contexto da classo que o chamou com o conjunto de argumentos */
+            /** Guarda o retorno do método original aplicado ao contexto da classo que o chamou com o conjunto de argumentos. */
             const retorno = metodoOriginal.apply(this, args);
 
             /** Tempo final de execução do método */
             const final = performance.now();
 
-            /** Mostra no console o tempo de execução do método */
+            /** Mostra no console o tempo de execução do método. */
             console.log(`Método (${propertyKey}) executado. O tempo de execução foi: ${(final - inicial) / divisor} ${unidade}`);
             
             return retorno;
         };
 
-        /** O novo comportamento do método */
+        /** O novo comportamento do método. */
         return descriptor;
 
     }

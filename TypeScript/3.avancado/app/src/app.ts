@@ -11,7 +11,7 @@ const negocicaoController = new NegociacaoController();
 
 if (formulario) {
     formulario.addEventListener('submit', event => {
-        // Evita que o formulário seja submetido
+        /** Evita que o formulário seja submetido. */
         event.preventDefault();
 
         negocicaoController.adiciona();

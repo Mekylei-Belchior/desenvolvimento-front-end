@@ -18,7 +18,7 @@ export function escapar(
         let retorno = metodoOriginal.apply(this, args);
 
         if (retorno == 'string') {
-            /** Se true, remove tag (script), se existir */
+            /** Se true, remove tag (script), se existir. */
             retorno = retorno.replace(/<script>[\s\S]*?<\/script>/, '');
         }
 

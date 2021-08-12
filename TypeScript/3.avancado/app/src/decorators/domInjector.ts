@@ -15,10 +15,10 @@ export function domInjector(seletor: string) {
      * @returns 
      */
     return function (target: any, propertyKey: string) {
-        /** Faz o cache do elemento em função do escopo da função */
+        /** Faz o cache do elemento em função do escopo da função. */
         let elemento: HTMLElement;
 
-        /** Define o get para ser adicionado na definição da propriedade */
+        /** Define o get para ser adicionado na definição da propriedade. */
         const getter = function () {
             if (!elemento) {
                 elemento = <HTMLElement>document.querySelector(seletor);
@@ -27,7 +27,7 @@ export function domInjector(seletor: string) {
             return elemento;
         }
 
-        /** Adiciona um getter a definição da propriedade */
+        /** Adiciona um getter a definição da propriedade. */
         Object.defineProperty(
             target,
             propertyKey,

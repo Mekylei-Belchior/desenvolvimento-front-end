@@ -3,9 +3,9 @@ export abstract class View<Tipo> {
     protected elemento: HTMLElement;
 
     /**
-     * Construtor
+     * Método construtor que inicializa a(s) propriedades da classe.
      * 
-     * @param cssID seletor CSS: id 
+     * @param cssID seletor CSS: id.
      */
     constructor(cssID: string) {
         let elemento = document.querySelector(cssID);
@@ -18,16 +18,16 @@ export abstract class View<Tipo> {
     }
 
     /**
-     * Renderiza o elemento HTML
+     * Renderiza o elemento HTML.
      */
     public atualiza(modelo: Tipo): void {
         this.elemento.innerHTML = this.template(modelo);
     }
 
     /**
-     * Cria um elemento HTML
+     * Cria um elemento HTML.
      * 
-     * @param modelo que servirá de base para criar o elemento HTML
+     * @param modelo que servirá de base para criar o elemento HTML.
      */
     protected abstract template(modelo: Tipo): string;
 }

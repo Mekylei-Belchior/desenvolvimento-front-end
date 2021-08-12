@@ -22,8 +22,6 @@ export class NegociacaoController {
     private mensagem = new MensagemView('#mensagem');
 
     /**
-     * Construtor da classe.
-     * 
      * Inicializa as propriedades com os campos do formulário.
      */
     constructor() {
@@ -49,8 +47,10 @@ export class NegociacaoController {
         this.negociacoes.adiciona(negociacao);
         this.negociacoesView.atualiza(this.negociacoes);
         this.mensagem.atualiza('A negociação foi criada com sucesso!');
-        imprimir(negociacao, this.negociacoes);
         this.limpa();
+
+        /** Imprime no console as informações dos objetos. */
+        imprimir(negociacao, this.negociacoes);
     }
 
     /**
@@ -75,6 +75,7 @@ export class NegociacaoController {
      * Verifica se a data é um dia útil.
      * 
      * @param data a ser verificada.
+     * 
      * @returns true se o dia estiver entre segunda-feira e sexta-feira. Do contrário, false.
      */
     private ehDiaUtil(data: Date): boolean {
