@@ -1,4 +1,4 @@
-import { Imprimivel } from "./Imprimivel.js";
+import { Imprimivel } from "../interfaces/Imprimivel.js";
 
 /**
  * Imprime no console os objetos.

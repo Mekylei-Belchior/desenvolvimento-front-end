@@ -1,6 +1,6 @@
-import { Imprimivel } from "../utils/Imprimivel.js";
+import { Imprimivel } from "../interfaces/Imprimivel.js";
 
-export class Negociacao extends Imprimivel {
+export class Negociacao implements Imprimivel {
 
     /**
      * Construtor que inicializa as propriedades de uma negociação quando a classe é instânciada 
@@ -12,7 +12,7 @@ export class Negociacao extends Imprimivel {
     constructor(
         private _data: Date,
         private _quantidade: number,
-        private _valor: number) { super(); }
+        private _valor: number) {}
 
     /**
      * Devolve a data da negociação
