@@ -21,4 +21,11 @@ export class Negociacoes {
     public lista(): ReadonlyArray<Negociacao> {
         return this.negociacoes;
     }
+
+    /**
+     * Devolve uma representação de uma lista de negociações
+     */
+    public paraTexto(): void {
+        console.log(JSON.stringify(this.negociacoes, null, 2));
+    }
 }

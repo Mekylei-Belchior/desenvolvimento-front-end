@@ -47,6 +47,19 @@ export class Negociacao {
     }
 
     /**
+     * Devolve a representação de uma negociação
+     */
+    public paraTexto(): void {
+        console.log(
+            `
+            Data: ${this._data},
+            Qauntidade: ${this._quantidade},
+            Valor: ${this._valor}
+            `
+        );
+    }
+
+    /**
      * Cria uma nova negociação
      * 
      * @returns uma (Negociação)
