@@ -1,6 +1,7 @@
+import { Imprimivel } from "../utils/Imprimivel.js";
 import { Negociacao } from "./Negociacao.js";
 
-export class Negociacoes {
+export class Negociacoes extends Imprimivel {
 
     private negociacoes: Array<Negociacao> = [];
 
@@ -25,7 +26,7 @@ export class Negociacoes {
     /**
      * Devolve uma representação de uma lista de negociações
      */
-    public paraTexto(): void {
-        console.log(JSON.stringify(this.negociacoes, null, 2));
+    public paraTexto(): string {
+        return JSON.stringify(this.negociacoes, null, 2);
     }
 }

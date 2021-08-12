@@ -1,9 +1,9 @@
 import { domInjector } from "../decorators/domInjector.js";
 import { DiasDaSemana } from "../enums/DiasDaSemana.js";
-import { NegociacaoAPI } from "../interfaces/NegociacaoAPI.js";
 import { Negociacao } from "../models/Negociacao.js";
 import { Negociacoes } from "../models/Negociacoes.js";
 import { NegociacoesService } from "../services/NegociacoesService.js";
+import { imprimir } from "../utils/Imprimir.js";
 import { MensagemView } from "../views/MensagemView.js";
 import { NegociacoesView } from "../views/NegociacoesView.js";
 
@@ -50,6 +50,7 @@ export class NegociacaoController {
         this.negociacoes.adiciona(negociacao);
         this.negociacoesView.atualiza(this.negociacoes);
         this.mensagem.atualiza('A negociação foi criada com sucesso!');
+        imprimir(negociacao, this.negociacoes);
         this.limpa();
     }
 

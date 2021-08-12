@@ -1,6 +1,6 @@
-import { descreveFuncao } from "../decorators/descreveFuncao.js";
+import { Imprimivel } from "../utils/Imprimivel.js";
 
-export class Negociacao {
+export class Negociacao extends Imprimivel {
 
     /**
      * Construtor que inicializa as propriedades de uma negociação quando a classe é instânciada 
@@ -12,7 +12,7 @@ export class Negociacao {
     constructor(
         private _data: Date,
         private _quantidade: number,
-        private _valor: number) { }
+        private _valor: number) { super(); }
 
     /**
      * Devolve a data da negociação
@@ -49,14 +49,12 @@ export class Negociacao {
     /**
      * Devolve a representação de uma negociação
      */
-    public paraTexto(): void {
-        console.log(
-            `
+    public paraTexto(): string {
+        return `
             Data: ${this._data},
             Qauntidade: ${this._quantidade},
             Valor: ${this._valor}
-            `
-        );
+            `;
     }
 
     /**
