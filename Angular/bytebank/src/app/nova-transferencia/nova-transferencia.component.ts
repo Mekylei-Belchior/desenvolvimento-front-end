@@ -1,6 +1,7 @@
 import { TransferenciaService } from './../services/transferencia.service';
 import { Component } from '@angular/core';
 import { Transferencia } from '../models/transferencia.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-nova-tranferencia',
@@ -11,7 +12,7 @@ export class NovaTransferenciaComponent {
   valor: number;
   destino: string;
 
-  constructor(private service: TransferenciaService) {}
+  constructor(private service: TransferenciaService, private router: Router) {}
 
   /**
    * Realiza uma nova transferência.
@@ -26,18 +27,11 @@ export class NovaTransferenciaComponent {
     this.service.adicionar(propriedades).subscribe(
       (operacao) => {
         console.table(operacao);
+        this.router.navigateByUrl('extrato');
       },
       (erro) => {
         console.log(erro);
       }
     );
-  }
-
-  /**
-   * Reinicia os valores dos campos do formulário.
-   */
-  private limpar(): void {
-    this.valor = 0;
-    this.destino = '0';
   }
 }
