@@ -14,7 +14,7 @@ export class AppComponent {
   constructor(private service: TransferenciaService) {}
 
   /**
-   * Propaga as propriedades de um evento.
+   * Propaga as propriedades obtidas no evendo contido no formulário de novas transferências.
    *
    * @param $event objeto com as propriedades de uma (Transferencia).
    */
