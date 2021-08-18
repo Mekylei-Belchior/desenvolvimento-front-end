@@ -19,7 +19,7 @@ INSERT INTO user (
     user_email,
     user_password,
     user_full_name
-) SELECT 'alvaro', 'alvaro@gatitobook.com.br', '12345678', 'Alvaro' WHERE NOT EXISTS (SELECT * FROM user WHERE user_name = 'alvaro')
+) SELECT 'fulano', 'fulano@gatitobook.com.br', '123456', 'Fulano Alguma Coisa' WHERE NOT EXISTS (SELECT * FROM user WHERE user_name = 'fulano')
 `;
 
 const PHOTO_SCHEMA = 
