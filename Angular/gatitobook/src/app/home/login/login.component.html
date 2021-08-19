@@ -1,6 +1,6 @@
 <h2 class="text-center">Login</h2>
 
-<form class="form mt-4" (ngSubmit)="login()" #formLogin="ngForm">
+<form class="form mt-4" (ngSubmit)="onLogin()" #formLogin="ngForm">
   <div class="input-group mb-3">
     <input
       class="form-control"
@@ -43,3 +43,12 @@
     </button>
   </div>
 </form>
+
+<p class="text-center mt-2">
+  Não é cadastrado? <a
+    class="cor"
+    [routerLink]="['novousuario']"
+    style="text-decoration: none"
+    >Faça o seu cadastro</a
+  >
+</p>

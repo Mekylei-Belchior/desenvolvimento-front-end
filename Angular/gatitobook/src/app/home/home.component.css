@@ -1,0 +1,10 @@
+#container{
+  background-color: lightslategray;
+  margin-top: 100px;
+  border-radius: 10px 10px 10px;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.781);
+}
+
+#img{
+  border-radius: 10px 10px 10px;
+}

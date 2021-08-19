@@ -21,7 +21,7 @@ export class LoginComponent implements OnInit {
   /**
    * Realiza a autenticação do usuário.
    */
-  public login(): void {
+  public onLogin(): void {
     this.autenticacao.autentica(this.usuario, this.senha).subscribe(
       () => {
         /* Se a autenticação for válida, redireciona para a rota (animais). */
