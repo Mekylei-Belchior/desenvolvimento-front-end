@@ -10,15 +10,47 @@
       formControlName="email"
     />
   </div>
+  <app-mensagem
+    *ngIf="
+      novoUsuarioForm.get('email')?.errors?.required &&
+      novoUsuarioForm.get('email')?.touched
+    "
+    mensagem="Informe o e-mail."
+  >
+  </app-mensagem>
+  <app-mensagem
+    *ngIf="
+      novoUsuarioForm.get('email')?.errors?.email &&
+      novoUsuarioForm.get('email')?.touched
+    "
+    mensagem="E-mail inválido!."
+  >
+  </app-mensagem>
+  <app-mensagem
+    *ngIf="
+      novoUsuarioForm.get('email')?.errors?.minusculo &&
+      novoUsuarioForm.get('email')?.touched
+    "
+    mensagem="Utilize somente caracteres minúsculo."
+  >
+  </app-mensagem>
   <div class="input-group mb-3">
     <input
       placeholder="Nome Completo"
       class="form-control"
       type="text"
       name="fullname"
-      formControlName="fullname"
+      formControlName="fullName"
     />
   </div>
+  <app-mensagem
+    *ngIf="
+      novoUsuarioForm.get('fullName')?.errors?.required &&
+      novoUsuarioForm.get('fullName')?.touched
+    "
+    mensagem="Informe o nome completo."
+  >
+  </app-mensagem>
   <div class="input-group mb-3">
     <input
       placeholder="Usuário"
@@ -28,15 +60,41 @@
       formControlName="userName"
     />
   </div>
+  <app-mensagem
+    *ngIf="
+      novoUsuarioForm.get('userName')?.errors?.required &&
+      novoUsuarioForm.get('userName')?.touched
+    "
+    mensagem="Informe o nome do usuário."
+  >
+  </app-mensagem>
+  <app-mensagem
+    *ngIf="novoUsuarioForm.get('userName')?.errors?.usuarioExistente"
+    mensagem="Usuário já existe!"
+  >
+  </app-mensagem>
   <div class="input-group mb-3">
     <input
       placeholder="Senha"
       class="form-control"
-      type="text"
-      name="password"
+      type="password"
+      name="pswd"
       formControlName="password"
     />
   </div>
+  <app-mensagem
+    *ngIf="
+      novoUsuarioForm.get('password')?.errors?.required &&
+      novoUsuarioForm.get('password')?.touched
+    "
+    mensagem="Informe a senha."
+  >
+  </app-mensagem>
+  <app-mensagem
+    *ngIf="novoUsuarioForm.errors?.senhaIgualUsuario"
+    mensagem="Usuário e Senha devem ser diferentes."
+  >
+  </app-mensagem>
   <div class="d-grid gap-2">
     <button class="btn btn-primary btn-block" type="submit">Cadastrar</button>
   </div>

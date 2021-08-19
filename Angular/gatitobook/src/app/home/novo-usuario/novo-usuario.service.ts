@@ -7,7 +7,11 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class NovoUsuarioService {
-  url = 'http://localhost:3000/user/signup';
+  /* Endpoints da API. */
+  urls = {
+    signup: 'http://localhost:3000/user/signup',
+    exists: 'http://localhost:3000/user/exists',
+  };
 
   constructor(private httpClient: HttpClient) {}
 
@@ -17,6 +21,15 @@ export class NovoUsuarioService {
    * @returns Observable
    */
   public cadastra(usuario: NovoUsuario): Observable<any> {
-    return this.httpClient.post(this.url, usuario);
+    return this.httpClient.post(this.urls.signup, usuario);
+  }
+
+  /**
+   * Verifica se um usuário já existe na base de dados.
+   * @param nomeUsuario Nome do usuário.
+   * @returns Um Observable.
+   */
+  public verificaUsuarioExistente(nomeUsuario: string): Observable<any> {
+    return this.httpClient.get(this.urls.exists.concat(`/${nomeUsuario}`));
   }
 }
