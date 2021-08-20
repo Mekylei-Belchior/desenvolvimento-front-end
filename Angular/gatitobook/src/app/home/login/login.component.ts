@@ -8,8 +8,8 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.css'],
 })
 export class LoginComponent implements OnInit {
-  usuario: string;
-  senha: string;
+  usuario = '';
+  senha = '';
 
   constructor(
     private autenticacao: AutenticacaoService /* Injeta a classe (AutenticacaoService). */,
@@ -25,7 +25,7 @@ export class LoginComponent implements OnInit {
     this.autenticacao.autentica(this.usuario, this.senha).subscribe(
       () => {
         /* Se a autenticação for válida, redireciona para a rota (animais). */
-        this.router.navigateByUrl('animais');
+        this.router.navigate(['animais']);
       },
       (error) => {
         alert('Usuário ou Senha inválido(s).');

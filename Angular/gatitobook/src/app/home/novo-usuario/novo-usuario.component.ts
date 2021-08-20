@@ -17,7 +17,7 @@ export class NovoUsuarioComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
-    private novoUsuario: NovoUsuarioService,
+    private novoUsuarioService: NovoUsuarioService,
     private usuarioExisteService: UsuarioExisteService,
     private router: Router
   ) {}
@@ -53,7 +53,7 @@ export class NovoUsuarioComponent implements OnInit {
       /* Obtém um novo usuário com base nos parâmetros obtidos do formulário. */
       const novoUsuario = this.novoUsuarioForm.getRawValue() as NovoUsuario;
 
-      this.novoUsuario.cadastra(novoUsuario).subscribe(
+      this.novoUsuarioService.cadastra(novoUsuario).subscribe(
         () => {
           this.router.navigate(['']);
         },
