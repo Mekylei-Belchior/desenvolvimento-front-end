@@ -1,16 +1,19 @@
+import { environment } from './../../../environments/environment';
 import { Observable } from 'rxjs';
 import { NovoUsuario } from './novo-usuario';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+
+const API = environment.apiURL;
 
 @Injectable({
   providedIn: 'root',
 })
 export class NovoUsuarioService {
   /* Endpoints da API. */
-  urls = {
-    signup: 'http://localhost:3000/user/signup',
-    exists: 'http://localhost:3000/user/exists',
+  url = {
+    signup: `${API}/user/signup`,
+    exists: `${API}/user/exists`,
   };
 
   constructor(private httpClient: HttpClient) {}
@@ -21,7 +24,7 @@ export class NovoUsuarioService {
    * @returns Observable
    */
   public cadastra(usuario: NovoUsuario): Observable<any> {
-    return this.httpClient.post(this.urls.signup, usuario);
+    return this.httpClient.post(this.url.signup, usuario);
   }
 
   /**
@@ -30,6 +33,6 @@ export class NovoUsuarioService {
    * @returns Um Observable.
    */
   public verificaUsuarioExistente(nomeUsuario: string): Observable<any> {
-    return this.httpClient.get(this.urls.exists.concat(`/${nomeUsuario}`));
+    return this.httpClient.get(this.url.exists.concat(`/${nomeUsuario}`));
   }
 }
