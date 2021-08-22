@@ -1,11 +1,11 @@
 export interface Animal {
   id: number;
-  post_date: Date;
+  postDate: Date;
   url: string;
   description: string;
-  allow_comments: boolean;
+  allowComments: boolean;
   likes: number;
-  comments: string;
+  comments: number;
   userId: number;
 }
 
