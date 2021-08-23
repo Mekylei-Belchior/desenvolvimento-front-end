@@ -1,11 +1,12 @@
 import { environment } from './../../environments/environment';
-import { TokenService } from './../autenticacao/token.service';
-import { Animais } from './animais';
-import { Observable } from 'rxjs';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Animais, Animal } from './animais';
+import { Observable, of, throwError } from 'rxjs';
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { catchError, mapTo } from 'rxjs/operators';
 
 const API = environment.apiURL;
+const NOT_MODIFIED = '304';
 
 @Injectable({
   providedIn: 'root',
@@ -13,7 +14,6 @@ const API = environment.apiURL;
 export class AnimaisService {
   constructor(
     private httpClient: HttpClient,
-    private tokenService: TokenService
   ) {}
 
   /**
@@ -22,13 +22,40 @@ export class AnimaisService {
    * @returns Um Observable com a relação de imagens.
    */
   public listaDoUsuario(nomeDoUsuario: string): Observable<Animais> {
-    /* Obtém o token do usuário. */
-    const token = this.tokenService.recupera();
-    /* Define o Header da requisição inserindo o token. */
-    const headers = new HttpHeaders().append('x-access-token', token);
-    /* Envia uma requisição GET para o endpoint da API. */
-    return this.httpClient.get<Animais>(`${API}/${nomeDoUsuario}/photos`, {
-      headers,
-    });
+    return this.httpClient.get<Animais>(`${API}/${nomeDoUsuario}/photos`);
+  }
+
+  /**
+   * Busca imagem de acordo com o seu ID.
+   * @param id Identificador da imagem.
+   * @returns Um Observable com a imagem.
+   */
+  public buscaPorId(id: number): Observable<Animal> {
+    return this.httpClient.get<Animal>(`${API}/photos/${id}`);
+  }
+
+  /**
+   * Exclui uma imagem de acordo com seu ID.
+   * @param id Identificador da imagem.
+   * @returns Um Observable da imagem deletada.
+   */
+  public excluiAnimal(id: number): Observable<Animal> {
+    return this.httpClient.delete<Animal>(`${API}/photos/${id}`);
+  }
+
+  /**
+   * Curti uma imagem de acordo com o seu ID.
+   * @param id Identificador da imagem.
+   * @returns Observable com true ou false.
+   */
+  public curtir(id: number): Observable<boolean> {
+    return this.httpClient
+      .post(`${API}/photos/${id}/like`, {}, { observe: 'response' })
+      .pipe(
+        mapTo(true),
+        catchError((error) => {
+          return error.status === NOT_MODIFIED ? of(false) : throwError(error);
+        })
+      );
   }
 }
