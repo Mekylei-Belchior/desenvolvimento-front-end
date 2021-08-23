@@ -50,7 +50,7 @@ export class AnimaisService {
    */
   public curtir(id: number): Observable<boolean> {
     return this.httpClient
-      .post(`${API}/photos/${id}/like`, {}, { observe: 'response' })
+      .post<boolean>(`${API}/photos/${id}/like`, {}, { observe: 'response' })
       .pipe(
         mapTo(true),
         catchError((error) => {
