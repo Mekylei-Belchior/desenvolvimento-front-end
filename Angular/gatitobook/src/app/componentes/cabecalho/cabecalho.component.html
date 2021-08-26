@@ -1,40 +1,43 @@
-<header class="sticky-top">
-  <nav class="navbar navbar-light bg-white">
-    <a class="navbar-brand">
-      <i
-        class="fa fa-bars mr-2"
-        (click)="menu.abreMenu()"
-        (keyup.space)="menu.abreMenu()"
-      >
-      </i>
-      Gatito Book
-    </a>
-
-    <div class="ml-auto" *ngIf="user$ | async as usuario">
-      <div *ngIf="usuario.name; else login">
-        <i class="fa fa-user-circle user-login"></i>
-        <a>{{ usuario.name }}</a>
-        <i
-          class="fa fa-sign-out fa-1x user-login nav-link"
-          aria-hidden="true"
-          (click)="logout()"
-        ></i>
+<header>
+  <nav class="navbar sticky-top navbar-light bg-white">
+    <div class="container-fluid">
+      <div *ngIf="user$ | async as usuario">
+        <div *ngIf="usuario.name; else logo">
+          <a class="navbar-brand">
+            <i
+              class="fa fa-bars mr-2"
+              (click)="menu.abreMenu()"
+              (keyup.space)="menu.abreMenu()"
+            >
+            </i>
+            Gatito Book
+          </a>
+        </div>
       </div>
+
+      <div *ngIf="user$ | async as usuario">
+        <div *ngIf="usuario.name">
+          <i class="fa fa-user-circle user-login"></i>
+          <a>{{ usuario.name }}</a>
+          <i
+            class="fa fa-sign-out fa-1x user-login nav-link"
+            aria-hidden="true"
+            (click)="logout()"
+          ></i>
+        </div>
+      </div>
+
+      <app-menu #menu>
+        <ul class="list-unstyled">
+          <li>
+            <a [routerLink]="['animais', 'novo']">Novo Animal</a>
+          </li>
+        </ul>
+      </app-menu>
     </div>
-
-    <app-menu #menu>
-      <ul class="list-unstyled">
-        <li>
-          <a [routerLink]="['animais', 'novo']">Novo Animal</a>
-        </li>
-      </ul>
-    </app-menu>
-
   </nav>
 
-  <ng-template #login>
-    <span class="navbar-text">
-      <a [routerLink]="['']">Login</a>
-    </span>
+  <ng-template #logo>
+    <a class="navbar-brand">Gatito Book</a>
   </ng-template>
 </header>
