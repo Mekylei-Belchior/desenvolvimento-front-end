@@ -2,7 +2,7 @@ import { environment } from './../../environments/environment';
 import { Animais, Animal } from './animais';
 import { Observable, of, throwError } from 'rxjs';
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpEvent } from '@angular/common/http';
 import { catchError, mapTo } from 'rxjs/operators';
 
 const API = environment.apiURL;
@@ -12,9 +12,7 @@ const NOT_MODIFIED = '304';
   providedIn: 'root',
 })
 export class AnimaisService {
-  constructor(
-    private httpClient: HttpClient,
-  ) {}
+  constructor(private httpClient: HttpClient) {}
 
   /**
    * Obtém a relação de imagens para um determinado usuário.
@@ -57,5 +55,29 @@ export class AnimaisService {
           return error.status === NOT_MODIFIED ? of(false) : throwError(error);
         })
       );
+  }
+
+  /**
+   * Salva uma imagem na base de dados.
+   * @param descricao Descrição da imagem.
+   * @param permiteComentario Se a foto irá permitir comentários.
+   * @param arquivo O arquivo da imagem a ser salva.
+   * @returns Observable de HttpEvent.
+   */
+  public upload(
+    descricao: string,
+    permiteComentario: boolean,
+    arquivo: File
+  ): Observable<HttpEvent<object>> {
+    const formData = new FormData();
+
+    formData.append('description', descricao);
+    formData.append('allowComments', permiteComentario ? 'true' : 'false');
+    formData.append('imageFile', arquivo);
+
+    return this.httpClient.post(`${API}/photos/upload`, formData, {
+      observe: 'events',
+      reportProgress: true,
+    });
   }
 }

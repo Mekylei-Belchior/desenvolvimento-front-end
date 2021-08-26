@@ -18,7 +18,7 @@
 
 .active-menu .overlay {
   position: fixed;
-  background-color: rgba(0, 0, 0, 0.04);
+  background-color: rgba(0, 0, 0, 0.4);
   top: 0;
   left: 0;
   right: 0;
