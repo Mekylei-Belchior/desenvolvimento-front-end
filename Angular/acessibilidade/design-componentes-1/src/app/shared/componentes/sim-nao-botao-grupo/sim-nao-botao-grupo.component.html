@@ -1,0 +1,37 @@
+<div
+  appTeclado
+  role="radiogroup"
+  [attr.aria.labelledby]="id"
+  class="botao-grupo"
+>
+  <label [attr.id]="id" class="label">{{ rotulo }}</label>
+  <button
+    appTecladoItem
+    (foco)="ativado(resposta.SIM)"
+    role="radio"
+    [attr.disabled]="desabilitado ? desabilitado : null"
+    [attr.aria-checked]="status === resposta.SIM"
+    [attr.tabindex]="status === resposta.SIM || status === null ? 0 : -1"
+    class="botao botao-sim"
+    type="button"
+    (click)="ativado(resposta.SIM)"
+    [class.botao-pressionado]="status === resposta.SIM"
+  >
+    Sim
+  </button>
+
+  <button
+    appTecladoItem
+    (foco)="ativado(resposta.NAO)"
+    role="radio"
+    [attr.disabled]="desabilitado ? desabilitado : null"
+    [attr.aria-checked]="status === resposta.NAO"
+    [attr.tabindex]="status === resposta.NAO || status === null ? 0 : -1"
+    class="botao botao-nao"
+    type="button"
+    (click)="ativado(resposta.NAO)"
+    [class.botao-pressionado]="status === resposta.NAO"
+  >
+    Não
+  </button>
+</div>
