@@ -1,0 +1,67 @@
+body {
+  font-family: "Comfortaa", cursive;
+}
+
+.produtos {
+  display: flex;
+  justify-content: space-around;
+  padding: 1.5%;
+  margin: 3%;
+}
+
+.produtos li {
+  text-align: center;
+  padding: 30px 20px;
+  width: 25%;
+  border: 2px solid #000000;
+  border-radius: 15px;
+}
+
+.produtos li:hover {
+  border-color: #35aaee;
+}
+
+.produtos li:hover h2 {
+  font-size: 2rem;
+}
+
+.produtos li:active {
+  border-color: #05af76;
+}
+
+.produtos h2 {
+  font-size: 1.6rem;
+  font-weight: bold;
+}
+
+.produtos img {
+  height: auto;
+  width: 80%;
+}
+
+.produto-descricao {
+  font-size: 1rem;
+  padding-top: 10px;
+}
+
+.produto-preco {
+  font-size: 22px;
+  font-weight: bold;
+  padding-top: 10px;
+}
+
+@media screen and (max-width: 590px) {
+  .produtos {
+    display: inline-block;
+    width: 80%;
+  }
+
+  .produtos li {
+    text-align: center;
+    margin: 3% auto;
+    padding: 30px 20px;
+    width: 100%;
+    border: 2px solid #000000;
+    border-radius: 15px;
+  }
+}

@@ -1,0 +1,53 @@
+.header {
+  display: flex;
+  justify-content: space-around;
+  vertical-align: middle;
+  align-items: center;
+  background-color: #bbbbbb;
+  padding: 20px;
+  margin: 0;
+}
+
+header nav li {
+  display: inline;
+  margin-left: 15px;
+}
+
+header nav a {
+  text-transform: uppercase;
+  color: #000000;
+  font-size: 22px;
+  text-decoration: none;
+}
+
+header nav a:hover {
+  font-weight: bold;
+  color: #35aaee;
+}
+
+@media only screen and (max-width: 590px) {
+  h1 {
+    text-align: center;
+  }
+
+  .header {
+    display: block;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #bbbbbb;
+    padding: 20px;
+  }
+
+  .header nav {
+    padding-top: 2%;
+  }
+
+  .header nav ul {
+    display: grid;
+  }
+
+  .header nav li {
+    padding: 2%;
+    text-align: center;
+  }
+}

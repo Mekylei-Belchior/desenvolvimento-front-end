@@ -1,0 +1,142 @@
+body {
+  font-family: "Comfortaa", cursive;
+}
+
+.banner {
+  width: 100%;
+  margin-bottom: 0;
+}
+
+.apresentacao {
+  background-color: #fefefe;
+  width: 100%;
+}
+
+.apresentacao-conteudo {
+  width: 80%;
+  margin: 0 auto;
+  padding: 3em 0;
+}
+
+.titulo-principal {
+  text-align: center;
+  font-size: 2em;
+  margin: 1em 0;
+  clear: left;
+}
+
+.utensilios {
+  width: 12%;
+  float: left;
+  padding: 0 1% 1% 0;
+}
+
+.apresentacao-conteudo p {
+  text-align: left;
+  margin-bottom: 1em;
+}
+
+.apresentacao-conteudo strong {
+  font-weight: bold;
+}
+
+.apresentacao-conteudo em {
+  font-style: italic;
+  color: #35aaee;
+}
+
+.mapa {
+  background: linear-gradient(#fefefe, #888888);
+  padding: 3em 0;
+}
+
+.mapa-conteudo {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.mapa p {
+  margin: 0 0 2em;
+  text-align: center;
+}
+
+.beneficios {
+  background-color: #888888;
+  width: 100%;
+  padding: 3em 0;
+}
+
+.conteudo-beneficios {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.lista {
+  display: inline-block;
+  vertical-align: top;
+  width: 40%;
+}
+
+.itens {
+  line-height: 1.5;
+}
+
+.itens::before {
+  content: "✪ ";
+}
+
+.itens:first-child {
+  font-weight: bold;
+}
+
+.imagem-beneficios {
+  width: 60%;
+  box-shadow: 10px 10px 10px 0.3 #000000;
+}
+
+.imagem-beneficios:hover {
+  opacity: 0.3;
+}
+
+.video {
+  width: 80%;
+  margin: 3em auto;
+}
+
+@media screen and (max-width: 560px) {
+
+  .lista,
+  .imagem-beneficios {
+    display: block;
+  }
+
+  .utensilios {
+    padding-bottom: 5%;
+    float: none;
+    width: 80%;
+  }
+
+  .apresentacao {
+    text-align: center;
+  }
+
+  .apresentacao-conteudo {
+    text-align: center;
+  }
+
+  .apresentacao-conteudo,
+  .mapa {
+    padding: 1em 0;
+  }
+
+  .conteudo-beneficios {
+    width: auto;
+  }
+
+  .lista,
+  .imagem-beneficios {
+    margin: 0 auto;
+    padding: 2%;
+    width: 80%;
+  }
+}

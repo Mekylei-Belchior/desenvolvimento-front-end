@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Barbearia - Contato</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./../assets/css/reset.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./../assets/css/navegacao.css" />
+    <link rel="stylesheet" href="./../assets/css/contato.css" />
+    <link rel="stylesheet" href="./../assets/css/footer.css" />
+  </head>
+
+  <body>
+    <header class="header">
+      <h1><img src="./../assets/img/logo.png" alt="logo" /></h1>
+      <nav>
+        <ul>
+          <li><a href="./../index.html">Home</a></li>
+          <li><a href="./../views/produtos.html">Produtos</a></li>
+          <li><a href="./../views/contato.html">Contato</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <form class="form">
+        <fieldset>
+          <label for="nome">Nome completo</label>
+          <input class="input-padrao" type="text" id="nome" required />
+
+          <label for="email">E-mail</label>
+          <input
+            class="input-padrao"
+            type="email"
+            id="email"
+            required
+            placeholder="seuemail@dominio.com"
+          />
+
+          <label for="telefone">Telefone</label>
+          <input
+            class="input-padrao"
+            type="tel"
+            id="telefone"
+            required
+            placeholder="(XX) XXXXX-XXXX"
+          />
+        </fieldset>
+
+        <div class="contato">
+          <label for="mensagem">Mensagem</label>
+          <textarea
+            class="input-padrao"
+            placeholder="Digite a sua mensagem"
+            name="mensagem"
+            id="mensagem"
+            cols="30"
+            rows="10"
+            required
+          ></textarea>
+
+          <fieldset>
+            <legend>Como prefere o nosso contato?</legend>
+
+            <label for="radioEmail">
+              <input type="radio" name="contato" id="radioEmail" />
+              E-mail
+            </label>
+
+            <label for="radioTelefone">
+              <input type="radio" name="contato" id="radioTelefone" />
+              Telefone
+            </label>
+
+            <label for="radioWhatsApp">
+              <input type="radio" name="contato" id="radioWhatsApp" checked />
+              WhatsApp
+            </label>
+          </fieldset>
+
+          <fieldset>
+            <legend>Qual horário prefere ser atendido?</legend>
+            <select name="horario" id="horario">
+              <option value="manha">Manhã</option>
+              <option value="tarde">Tarde</option>
+              <option value="noite">Noite</option>
+            </select>
+
+            <div class="novidades">
+              <input
+                class="checkbox"
+                type="checkbox"
+                name="novidades"
+                id="novidades"
+                checked
+              /> Gostaria de receber as nossas novidades por e-mail?
+            </div>
+          </fieldset>
+        </div>
+
+        <input class="enviar" type="submit" value="Enviar" />
+      </form>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Dia</th>
+            <th>Horário</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Segunda</td>
+            <td>8h ~ 20h</td>
+          </tr>
+          <tr>
+            <td>Quarta</td>
+            <td>8h ~ 20h</td>
+          </tr>
+          <tr>
+            <td>Sexta</td>
+            <td>8h ~ 20h</td>
+          </tr>
+        </tbody>
+      </table>
+    </main>
+
+    <footer class="footer">
+      <img
+        src="./../assets/img/logo-rodape.png"
+        alt="Imagem na cor branca de um homem com barba e cabelo"
+      />
+      <p class="footer-copy">&copy; Copyright Barbearia - 2021</p>
+    </footer>
+  </body>
+</html>

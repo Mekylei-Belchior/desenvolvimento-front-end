@@ -1,0 +1,11 @@
+.footer {
+    background-image: url("./../img/bg.jpg");
+    text-align: center;
+    padding: 3%;
+  }
+  
+  .footer-copy {
+    color: #ffffff;
+    font-size: 0.8rem;
+  }
+  

@@ -1,0 +1,112 @@
+body {
+  font-family: "Comfortaa", cursive;
+}
+
+main {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.form {
+  margin: 5% 0;
+}
+
+.form label,
+.form legend {
+  display: block;
+  margin-bottom: 1.5%;
+}
+
+.form .input-padrao {
+  display: block;
+  margin-bottom: 1%;
+  padding: 0.6% 0.5%;
+  width: 50%;
+}
+
+input,
+textarea:focus {
+  outline-color: #35aaee;
+}
+
+.checkbox {
+  margin: 2% 0;
+}
+
+.enviar {
+  width: 20%;
+  padding: 1.3% 0;
+  border: none;
+  border-radius: 30px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #ffffff;
+  background-color: #35aaee;
+  transition: 0.8s all;
+  cursor: pointer;
+}
+
+.enviar:hover {
+  background-color: #0877b8;
+  transform: scale(1.15);
+}
+
+table {
+  margin: 5% 0;
+}
+
+thead {
+  background-color: #3d3b3b;
+  color: #ffffff;
+  font-weight: bold;
+}
+
+th,
+td {
+  border: 1px solid #000000;
+  padding: 8px 50px;
+}
+
+@media screen and (max-width: 590px) {
+  .form label,
+  .form input,
+  .form legend,
+  .form .input-padrao {
+    display: inline;
+    width: 100%;
+  }
+
+  .form .input-padrao {
+    height: 32px;
+    margin: 2% 0 5%;
+  }
+
+  .contato {
+    margin-top: 3%;
+  }
+
+  fieldset {
+    margin: 5% 0;
+  }
+
+  #mensagem {
+    height: 250px;
+  }
+
+  #horario {
+    font-size: 1rem;
+    margin-bottom: 5%;
+  }
+
+  .novidades {
+    display: flex;
+  }
+
+  #novidades {
+    margin: 3% -80px;
+  }
+
+  table {
+    margin: 10% auto;
+  }
+}
